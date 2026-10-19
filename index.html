@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#111713" />
+  <meta name="description" content="Ariyan's Family Restaurant & Bar in Z-Corner , Pune. Explore our food, drinks and ways to connect." />
+  <title>Ariyan's Family Restaurant & Bar | Pune</title>
+  <style>
+    :root {
+      --ink: #f8f5ed;
+      --muted: #b5b9b1;
+      --bg: #111713;
+      --panel: #1a211c;
+      --panel-2: #202922;
+      --line: rgba(255,255,255,.11);
+      --gold: #d9a85e;
+      --gold-bright: #f0c57d;
+      --green: #91a88f;
+      --page: 1160px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; }
+    img { display: block; width: 100%; }
+    .wrap { width: min(var(--page), calc(100% - 48px)); margin-inline: auto; }
+    .site-header {
+      position: sticky; top: 0; z-index: 20;
+      background: rgba(17,23,19,.92); backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 22px; }
+    .brand { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; min-width: 0; }
+    .brand-mark {
+      width: 42px; height: 42px; flex: 0 0 42px; display: grid; place-items: center;
+      border: 1px solid rgba(217,168,94,.55); border-radius: 14px; color: var(--gold-bright);
+      font-family: Georgia, serif; font-size: 19px; letter-spacing: -2px;
+    }
+    .brand-name { display: block; font-family: Georgia, "Times New Roman", serif; font-size: 18px; line-height: 1.1; }
+    .brand-sub { display: block; margin-top: 4px; color: var(--muted); font-size: 9px; letter-spacing: .18em; }
+    .nav-right { display: flex; align-items: center; gap: 24px; }
+    .nav-links { display: flex; align-items: center; gap: 24px; }
+    .nav-links a { text-decoration: none; color: var(--muted); font-size: 13px; transition: color .2s; }
+    .nav-links a:hover { color: var(--gold-bright); }
+    .socials { display: flex; align-items: center; gap: 9px; }
+    .social-icon {
+      width: 40px; height: 40px; display: inline-grid; place-items: center;
+      border: 1px solid var(--line); border-radius: 50%; color: var(--ink); background: rgba(255,255,255,.035);
+      transition: transform .2s, border-color .2s, background .2s; text-decoration: none;
+    }
+    .social-icon:hover { transform: translateY(-2px); border-color: var(--gold); background: rgba(217,168,94,.1); }
+    .social-icon svg { width: 19px; height: 19px; }
+    .hero { padding: 62px 0 52px; }
+    .hero-grid { display: grid; grid-template-columns: 1.02fr .98fr; align-items: center; gap: 54px; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 10px; color: var(--gold-bright); font-size: 11px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; }
+    .eyebrow::before { content: ""; width: 28px; height: 1px; background: var(--gold); }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { max-width: 620px; margin: 20px 0 18px; font-family: Georgia, "Times New Roman", serif; font-size: clamp(42px, 5.2vw, 72px); line-height: 1.04; font-weight: 500; letter-spacing: -.04em; }
+    h1 em { color: var(--gold-bright); font-weight: 400; }
+    .hero-copy { max-width: 520px; color: var(--muted); font-size: 16px; }
+    .hero-address { display: flex; align-items: flex-start; gap: 9px; margin: 24px 0 27px; color: #d5d6cf; font-size: 13px; }
+    .pin { color: var(--gold-bright); flex: 0 0 auto; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn { min-height: 48px; padding: 12px 19px; display: inline-flex; align-items: center; justify-content: center; gap: 10px; border: 1px solid var(--line); border-radius: 9px; text-decoration: none; font-weight: 650; font-size: 13px; transition: .2s; }
+    .btn-primary { border-color: var(--gold); background: var(--gold); color: #21180d; }
+    .btn-primary:hover { background: var(--gold-bright); border-color: var(--gold-bright); transform: translateY(-2px); }
+    .btn-secondary:hover { border-color: var(--gold); color: var(--gold-bright); }
+    .btn svg { width: 18px; height: 18px; }
+    .hero-photo { position: relative; min-height: 390px; border-radius: 18px; overflow: hidden; border: 1px solid rgba(255,255,255,.14); background: #30352f; }
+    .hero-photo img { position: absolute; inset: 0; height: 100%; object-fit: cover; }
+    .hero-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(12,16,13,.76), transparent 55%), linear-gradient(90deg, rgba(12,16,13,.14), transparent); }
+    .photo-caption { position: absolute; z-index: 1; bottom: 22px; left: 22px; right: 22px; display: flex; align-items: end; justify-content: space-between; gap: 12px; }
+    .photo-caption small { display: block; color: #e2d4bd; text-transform: uppercase; letter-spacing: .16em; font-size: 9px; }
+    .photo-caption strong { display: block; margin-top: 5px; font-family: Georgia, serif; font-size: 21px; font-weight: 500; }
+    .photo-chip { border: 1px solid rgba(255,255,255,.35); border-radius: 99px; padding: 7px 11px; color: #fff; font-size: 10px; white-space: nowrap; }
+    .section { padding: 58px 0; border-top: 1px solid var(--line); }
+    .section-head { display: flex; justify-content: space-between; align-items: end; gap: 24px; margin-bottom: 26px; }
+    .section-kicker { display: block; color: var(--gold-bright); font-size: 10px; letter-spacing: .2em; text-transform: uppercase; font-weight: 700; margin-bottom: 8px; }
+    h2 { margin-bottom: 0; font-family: Georgia, "Times New Roman", serif; font-weight: 500; font-size: clamp(30px, 4vw, 44px); line-height: 1.12; letter-spacing: -.025em; }
+    .section-note { max-width: 420px; margin: 0; color: var(--muted); font-size: 13px; }
+    .dish-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 17px; }
+    .menu-card-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 17px; margin-top: 30px; }
+    .menu-card { min-width: 0; overflow: hidden; border: 1px solid var(--line); border-radius: 14px; background: var(--panel); }
+    .menu-card-head { padding: 17px 18px 13px; }
+    .menu-card-head h3 { margin: 0; font-family: Georgia, serif; font-size: 21px; font-weight: 500; }
+    .menu-card-head p { margin: 5px 0 0; color: var(--muted); font-size: 12px; }
+    .menu-card-view { width: 100%; height: 620px; display: block; border: 0; border-top: 1px solid var(--line); background: #fff; }
+    .dish-card { min-width: 0; overflow: hidden; border: 1px solid var(--line); border-radius: 14px; background: var(--panel); }
+    .dish-photo { aspect-ratio: 1.48 / 1; overflow: hidden; background: var(--panel-2); }
+    .dish-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform .45s; }
+    .dish-card:hover .dish-photo img { transform: scale(1.04); }
+    .dish-body { padding: 18px 18px 20px; }
+    .dish-number { color: var(--gold); font-size: 10px; letter-spacing: .14em; font-weight: 700; }
+    .dish-body h3 { margin: 7px 0 7px; font-family: Georgia, serif; font-size: 21px; font-weight: 500; }
+    .dish-body p { margin: 0; color: var(--muted); font-size: 12px; }
+    .dish-card--feature { background: linear-gradient(150deg, #243027, #1a211c 72%); }
+    .dish-card--feature .dish-photo { position: relative; display: flex; align-items: center; justify-content: center; background: radial-gradient(circle at 50% 38%, rgba(217,168,94,.22), transparent 46%), linear-gradient(145deg, #29382d, #182019); }
+    .dish-number-large { color: rgba(240,197,125,.9); font-family: Georgia, serif; font-size: clamp(92px, 12vw, 150px); line-height: 1; letter-spacing: -.1em; transform: translateX(-7px); }
+    .feature-stamp { position: absolute; bottom: 16px; right: 16px; border: 1px solid rgba(240,197,125,.45); color: var(--gold-bright); border-radius: 99px; padding: 6px 10px; font-size: 9px; letter-spacing: .12em; text-transform: uppercase; }
+    .drink-section { background: #151c17; }
+    .drink-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 17px; }
+    .drink-card { display: grid; grid-template-columns: minmax(120px, .8fr) 1.2fr; min-height: 210px; overflow: hidden; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .drink-photo { min-height: 210px; overflow: hidden; background: var(--panel-2); }
+    .drink-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .drink-copy { padding: 20px; align-self: center; }
+    .drink-copy h3 { margin: 8px 0; font-family: Georgia, serif; font-weight: 500; font-size: 22px; line-height: 1.18; }
+    .drink-copy p { margin: 0; color: var(--muted); font-size: 12px; }
+    .drink-tag { color: var(--gold-bright); font-size: 9px; letter-spacing: .15em; text-transform: uppercase; }
+    .connect { padding: 52px 0; }
+    .connect-panel { display: flex; align-items: center; justify-content: space-between; gap: 28px; padding: 28px; border: 1px solid rgba(217,168,94,.26); border-radius: 16px; background: linear-gradient(115deg, rgba(217,168,94,.10), rgba(255,255,255,.025) 60%); }
+    .connect-panel h2 { font-size: clamp(26px, 3vw, 36px); }
+    .connect-panel p { margin: 9px 0 0; color: var(--muted); font-size: 13px; }
+    .connect-links { display: flex; flex-wrap: wrap; gap: 10px; }
+    .connect-links .btn { min-height: 44px; padding: 10px 13px; }
+    .connect-links .btn svg { width: 17px; height: 17px; }
+    footer { padding: 24px 0 35px; color: #939a91; border-top: 1px solid var(--line); font-size: 11px; }
+    .footer-row { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .footer-brand { color: var(--ink); font-family: Georgia, serif; font-size: 16px; }
+    .footer-address { margin-top: 4px; }
+    .footer-socials { display: flex; align-items: center; gap: 8px; }
+    .mobile-quick { display: none; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+    .review-overlay { display: none; position: fixed; inset: 0; z-index: 100; align-items: center; justify-content: center; padding: 18px; background: rgba(5,8,6,.78); backdrop-filter: blur(8px); }
+    .review-overlay.is-open { display: flex; }
+    .review-dialog { position: relative; width: min(580px, 100%); max-height: min(92vh, 760px); overflow: auto; padding: clamp(22px, 5vw, 36px); border: 1px solid rgba(217,168,94,.42); border-radius: 18px; background: #18211b; box-shadow: 0 28px 90px rgba(0,0,0,.55); }
+    .review-close { position: absolute; top: 16px; right: 16px; width: 38px; height: 38px; border: 1px solid var(--line); border-radius: 50%; background: #202922; color: var(--ink); font-size: 23px; line-height: 1; cursor: pointer; }
+    .review-dialog h2 { max-width: 440px; margin: 7px 40px 10px 0; font-size: clamp(28px, 6vw, 39px); }
+    .review-intro { max-width: 460px; margin: 0 0 18px; color: var(--muted); font-size: 13px; }
+    .review-moods { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
+    .review-mood { min-height: 38px; padding: 8px 13px; border: 1px solid var(--line); border-radius: 99px; background: #202922; color: #d5d8d2; font: inherit; font-size: 11px; cursor: pointer; }
+    .review-mood:hover, .review-mood.is-active { border-color: var(--gold); background: rgba(217,168,94,.14); color: var(--gold-bright); }
+    .review-language-toggle { min-height: 36px; margin: 0 0 12px; padding: 7px 12px; border: 1px solid rgba(217,168,94,.4); border-radius: 99px; background: rgba(217,168,94,.08); color: var(--gold-bright); font: inherit; font-size: 11px; font-weight: 650; cursor: pointer; }
+    .review-language-toggle:hover { background: rgba(217,168,94,.16); }
+    .review-idea { min-height: 142px; display: grid; align-content: center; margin: 16px 0 10px; padding: 22px; border: 1px solid rgba(217,168,94,.28); border-radius: 13px; background: linear-gradient(145deg, rgba(217,168,94,.10), rgba(255,255,255,.025)); color: #f5eee1; font-family: Georgia, serif; font-size: clamp(17px, 3vw, 21px); line-height: 1.55; }
+    .review-idea p { margin: 0; }
+    .review-status { min-height: 21px; margin: 8px 0 14px; color: var(--muted); font-size: 11px; }
+    .review-status.is-error { color: #f2a18e; }
+    .review-actions { display: grid; grid-template-columns: .9fr 1.1fr; gap: 9px; }
+    .review-actions .btn { width: 100%; font-size: 12px; }
+    @media (max-width: 640px) {
+      .review-overlay { padding: 10px; align-items: flex-end; }
+      .review-dialog { max-height: 93vh; padding: 24px 18px calc(18px + env(safe-area-inset-bottom)); border-radius: 18px 18px 12px 12px; }
+      .review-draft { min-height: 160px; font-size: 12px; }
+      .review-actions { grid-template-columns: 1fr; }
+    }
+    .social-icon.social-whatsapp { color: #25d366; border-color: rgba(37,211,102,.35); background: rgba(37,211,102,.10); }
+    .social-icon.social-instagram { color: #ff4f91; border-color: rgba(225,48,108,.40); background: linear-gradient(145deg, rgba(131,58,180,.20), rgba(253,29,29,.13), rgba(252,176,69,.13)); }
+    .social-icon.social-facebook { color: #55a0ff; border-color: rgba(24,119,242,.40); background: rgba(24,119,242,.13); }
+    .social-icon.social-google { color: #f6ba2c; border-color: rgba(246,186,44,.42); background: rgba(246,186,44,.13); }
+    .quick-link.social-whatsapp { border-color: rgba(37,211,102,.28); background: linear-gradient(110deg, rgba(37,211,102,.10), var(--panel) 58%); }
+    .quick-link.social-instagram { border-color: rgba(225,48,108,.30); background: linear-gradient(110deg, rgba(131,58,180,.15), rgba(225,48,108,.08) 42%, var(--panel) 80%); }
+    .quick-link.social-facebook { border-color: rgba(24,119,242,.30); background: linear-gradient(110deg, rgba(24,119,242,.13), var(--panel) 58%); }
+    .quick-link.social-google { border-color: rgba(246,186,44,.32); background: linear-gradient(110deg, rgba(246,186,44,.12), var(--panel) 58%); }
+    .quick-link.social-whatsapp > svg:first-child { color: #25d366; }
+    .quick-link.social-instagram > svg:first-child { color: #ff4f91; }
+    .quick-link.social-facebook > svg:first-child { color: #55a0ff; }
+    .quick-link.social-google > svg:first-child { color: #f6ba2c; }
+    .btn-primary.social-whatsapp { color: #07140b; background: #25d366; border-color: #25d366; }
+    .btn-primary.social-whatsapp:hover { background: #45e27d; border-color: #45e27d; }
+    .quick-links { padding: 0 0 18px; }
+    .quick-links-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+    .quick-link { min-width: 0; min-height: 68px; padding: 10px 13px; display: flex; align-items: center; gap: 11px; text-decoration: none; color: var(--ink); background: var(--panel); border: 1px solid var(--line); border-radius: 12px; transition: border-color .2s, transform .2s, background .2s; }
+    .quick-link:hover { border-color: rgba(217,168,94,.65); background: var(--panel-2); transform: translateY(-2px); }
+    .quick-link > svg:first-child { width: 21px; height: 21px; flex: 0 0 21px; color: var(--gold-bright); }
+    .quick-link span { min-width: 0; flex: 1; }
+    .quick-link strong { display: block; font-size: 12px; line-height: 1.25; }
+    .quick-link small { display: block; margin-top: 3px; color: var(--muted); font-size: 10px; }
+    .quick-link .quick-arrow { width: 15px; height: 15px; flex: 0 0 15px; color: var(--muted); }
+    @media (max-width: 850px) {
+      .wrap { width: min(var(--page), calc(100% - 36px)); }
+      .hero-grid { gap: 28px; }
+      .hero-photo { min-height: 340px; }
+      .dish-grid { gap: 12px; }
+      .dish-body { padding: 15px; }
+      .drink-card { grid-template-columns: minmax(110px, .75fr) 1.25fr; }
+      .drink-copy { padding: 15px; }
+    }
+    @media (max-width: 640px) {
+      .wrap { width: calc(100% - 32px); }
+      .quick-links { padding-bottom: 14px; }
+      .quick-links-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+      .quick-link { min-height: 62px; padding: 9px; gap: 8px; }
+      .quick-link strong { font-size: 11px; }
+      .quick-link small { font-size: 9px; }
+      .quick-link .quick-arrow { display: none; }
+      .nav { min-height: 66px; gap: 10px; }
+      .brand { gap: 9px; }
+      .brand-mark { width: 37px; height: 37px; flex-basis: 37px; border-radius: 12px; font-size: 17px; }
+      .brand-name { font-size: 16px; }
+      .brand-sub { font-size: 8px; letter-spacing: .13em; }
+      .nav-right { gap: 0; }
+      .nav-links { display: none; }
+      .socials { gap: 6px; }
+      .social-icon { width: 36px; height: 36px; }
+      .social-icon svg { width: 17px; height: 17px; }
+      .hero { padding: 35px 0 38px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 25px; }
+      h1 { margin: 14px 0 14px; font-size: clamp(39px, 12vw, 55px); }
+      .hero-copy { font-size: 14px; }
+      .hero-address { margin: 18px 0 21px; font-size: 12px; }
+      .hero-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; }
+      .btn { min-height: 46px; padding: 10px 12px; font-size: 12px; }
+      .hero-photo { min-height: 280px; border-radius: 14px; }
+      .photo-caption { bottom: 16px; left: 16px; right: 16px; }
+      .section { padding: 41px 0; }
+      .section-head { display: block; margin-bottom: 19px; }
+      .section-note { margin-top: 10px; font-size: 12px; }
+      .dish-grid { grid-template-columns: 1fr; gap: 13px; }
+      .menu-card-grid { grid-template-columns: 1fr; gap: 14px; margin-top: 22px; }
+      .menu-card-head { padding: 15px; }
+      .menu-card-view { height: min(72vh, 680px); min-height: 500px; }
+      .dish-photo { aspect-ratio: 1.65 / 1; }
+      .dish-body { padding: 16px; }
+      .dish-body h3 { font-size: 20px; }
+      .dish-body p { font-size: 13px; }
+      .dish-card--feature .dish-photo { aspect-ratio: 1.65 / 1; }
+      .dish-number-large { font-size: 116px; }
+      .drink-grid { grid-template-columns: 1fr; gap: 13px; }
+      .drink-card { grid-template-columns: 42% 58%; min-height: 170px; }
+      .drink-photo { min-height: 170px; }
+      .drink-copy { padding: 14px; }
+      .drink-copy h3 { font-size: 19px; }
+      .drink-copy p { font-size: 11px; }
+      .connect { padding: 34px 0; }
+      .connect-panel { display: block; padding: 20px; }
+      .connect-panel p { font-size: 12px; }
+      .connect-links { margin-top: 17px; display: grid; grid-template-columns: 1fr 1fr; }
+      .connect-links .btn { justify-content: flex-start; font-size: 11px; }
+      .footer-row { display: block; }
+      .footer-socials { margin-top: 16px; }
+      footer { padding-bottom: 92px; }
+      .mobile-quick {
+        position: fixed; left: 12px; right: 12px; bottom: max(12px, env(safe-area-inset-bottom)); z-index: 30;
+        display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 8px;
+        background: rgba(22,29,24,.94); border: 1px solid var(--line); border-radius: 14px; backdrop-filter: blur(16px);
+        box-shadow: 0 10px 35px rgba(0,0,0,.35);
+      }
+      .mobile-quick .btn { min-height: 43px; }
+    }
+    @media (max-width: 380px) {
+      .wrap { width: calc(100% - 24px); }
+      .nav { gap: 6px; }
+      .brand { gap: 6px; }
+      .brand-mark { width: 33px; height: 33px; flex-basis: 33px; }
+      .brand-name { font-size: 14px; }
+      .brand-sub { display: none; }
+      .socials { gap: 4px; }
+      .social-icon { width: 30px; height: 30px; }
+      .social-icon svg { width: 15px; height: 15px; }
+      .quick-link { min-height: 58px; padding: 8px; }
+      .quick-link small { display: none; }
+      .hero-actions { grid-template-columns: 1fr; }
+      .hero-actions .btn { width: 100%; }
+      .review-overlay { padding: 6px; }
+      .review-dialog { padding: 22px 14px calc(16px + env(safe-area-inset-bottom)); }
+      .review-moods { display: grid; grid-template-columns: 1fr 1fr; }
+      .review-mood { min-height: 44px; }
+      .review-idea { padding: 16px; font-size: 16px; }
+      .mobile-quick { left: 8px; right: 8px; gap: 6px; padding: 6px; }
+      .mobile-quick .btn { padding-inline: 8px; font-size: 11px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <svg class="sr-only" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="icon-whatsapp" viewBox="0 0 24 24"><path d="M20.5 11.7a8.4 8.4 0 0 1-12.4 7.4L3 20.4l1.4-4.9a8.4 8.4 0 1 1 16.1-3.8Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M8.3 7.9c.2-.4.4-.4.7-.4h.5c.2 0 .4.1.5.4l.8 1.9c.1.3.1.5-.1.7l-.6.7c-.2.2-.2.4 0 .6.4.8 1.1 1.5 1.9 1.9.2.1.4.1.6-.1l.8-.9c.2-.2.4-.3.7-.2l1.8.9c.3.1.4.3.4.5 0 .3-.2 1.1-.7 1.5-.5.5-1.1.7-1.8.7-.6 0-1.5-.2-2.8-.9-1.7-.9-3.1-2.6-3.5-3.2-.4-.6-1-1.6-1-2.5 0-.9.5-1.4.7-1.6Z" fill="currentColor"/></symbol>
+    <symbol id="icon-instagram" viewBox="0 0 24 24"><rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4.1" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.8" cy="6.5" r="1.15" fill="currentColor"/></symbol>
+    <symbol id="icon-facebook" viewBox="0 0 24 24"><path fill="currentColor" d="M13.4 21v-8.2h2.8l.4-3.2h-3.2V7.5c0-.9.3-1.5 1.6-1.5h1.7V3.1c-.3 0-1.4-.1-2.6-.1-2.6 0-4.4 1.6-4.4 4.5v2.1H6.8v3.2h2.9V21h3.7Z"/></symbol>
+    <symbol id="icon-google-star" viewBox="0 0 24 24"><path fill="currentColor" d="m12 2.7 2.8 5.7 6.3.9-4.6 4.5 1.1 6.3-5.6-3-5.6 3 1.1-6.3-4.6-4.5 6.3-.9L12 2.7Z"/></symbol>
+    <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="icon-pin" viewBox="0 0 24 24"><path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 1 1 14 0Z" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="10" r="2.2" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+  </svg>
+
+  <header class="site-header" id="top">
+    <div class="wrap nav">
+      <a class="brand" href="#top" aria-label="Ariyan's Restaurant home">
+        <span class="brand-mark">AR</span>
+        <span><span class="brand-name">Ariyan's</span><span class="brand-sub">FAMILY RESTAURANT &amp; BAR</span></span>
+      </a>
+      <div class="nav-right">
+        <nav class="nav-links" aria-label="Main navigation"><a href="#menu">Menu</a><a href="#drinks">Drinks</a><a href="#visit">Find us</a></nav>
+        <div class="socials" aria-label="Social links">
+          <a class="social-icon social-whatsapp" href="https://wa.me/919325024374" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><svg><use href="#icon-whatsapp"/></svg></a>
+          <a class="social-icon social-instagram" href="https://www.instagram.com/aryansfamilyofficial?igsh=czhiZWthMzU0ZDUz&utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg><use href="#icon-instagram"/></svg></a>
+          <a class="social-icon social-facebook" href="https://www.facebook.com/legendaryans/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg><use href="#icon-facebook"/></svg></a>
+          <a class="social-icon social-google" href="#google-review-assistant" onclick="openReviewAssistant(event)" aria-label="Write a Google review"><svg><use href="#icon-google-star"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="quick-links" aria-label="Connect with Ariyan's">
+      <div class="wrap quick-links-grid">
+        <a class="quick-link social-whatsapp" href="https://wa.me/919325024374" target="_blank" rel="noopener noreferrer"><svg><use href="#icon-whatsapp"/></svg><span><strong>WhatsApp</strong><small>Chat with us</small></span><svg class="quick-arrow"><use href="#icon-arrow"/></svg></a>
+        <a class="quick-link social-instagram" href="https://www.instagram.com/aryansfamilyofficial?igsh=czhiZWthMzU0ZDUz&utm_source=qr" target="_blank" rel="noopener noreferrer"><svg><use href="#icon-instagram"/></svg><span><strong>Instagram</strong><small>Follow along</small></span><svg class="quick-arrow"><use href="#icon-arrow"/></svg></a>
+        <a class="quick-link social-google" href="#google-review-assistant" onclick="openReviewAssistant(event)"><svg><use href="#icon-google-star"/></svg><span><strong>Google Reviews</strong><small>Start a review draft</small></span><svg class="quick-arrow"><use href="#icon-arrow"/></svg></a>
+        <a class="quick-link social-facebook" href="https://www.facebook.com/legendaryans/" target="_blank" rel="noopener noreferrer"><svg><use href="#icon-facebook"/></svg><span><strong>Facebook</strong><small>See our updates</small></span><svg class="quick-arrow"><use href="#icon-arrow"/></svg></a>
+      </div>
+    </section>
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <span class="eyebrow">Z-Corner · Pune</span>
+          <h1>Gather around <em>good food.</em></h1>
+          <p class="hero-copy">Make room for relaxed family meals, charcoal-grilled favourites and a welcoming bar, all in one neighbourhood spot.</p>
+          <p class="hero-address"><svg class="pin" width="18" height="18"><use href="#icon-pin"/></svg><span>Z-Corner,Village Road, Lonkar Wasti, Keshav Nagar, Mundhwa, Pune 411036</span></p>
+          <div class="hero-actions">
+            <a class="btn btn-primary social-whatsapp" href="https://wa.me/9325024374" target="_blank" rel="noopener noreferrer"><svg><use href="#icon-whatsapp"/></svg>Chat on WhatsApp</a>
+            <a class="btn btn-secondary" href="#menu">Explore the menu <svg><use href="#icon-arrow"/></svg></a>
+          </div>
+        </div>
+        <div class="hero-photo">
+          <img src="chicken-tikka.jpg" alt="Char-grilled chicken tikka served with chutney and lemon" fetchpriority="high" />
+          <div class="photo-caption"><span><small>From our grill</small><strong>Made to be shared</strong></span><span class="photo-chip">Warm · Fresh · Local</span></div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section drink-section" id="drinks">
+      <div class="wrap">
+        <div class="section-head"><div><span class="section-kicker">Raise a glass</span><h2>Drinks for the evening</h2></div><p class="section-note">Something bright and citrusy, or a refreshing no-alcohol pour to suit your mood.</p></div>
+        <div class="drink-grid">
+          <article class="drink-card"><div class="drink-photo"><img src="citrus-cocktail.jpg" alt="Citrus cocktail with orange peel and ice" loading="lazy" /></div><div class="drink-copy"><span class="drink-tag">Bar classic</span><h3>Classic Citrus Cocktail</h3><p>A bright citrus-led pour with orange, ice and an aromatic garnish.</p></div></article>
+          <article class="drink-card"><div class="drink-photo"><img src="tropical-mocktail.jpg" alt="Pomegranate and orange mocktail with mint and citrus" loading="lazy" /></div><div class="drink-copy"><span class="drink-tag">Zero proof</span><h3>Tropical Pomegranate Mocktail</h3><p>Ruby pomegranate, orange, fresh mint and sparkling refreshment.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+  
+    <section class="section" id="menu">
+      <div class="wrap">
+        <div class="section-head"><div><span class="section-kicker">A taste of Ariyan's</span><h2>From the kitchen</h2></div><p class="section-note">A few favourites for the table, from smoky grill flavours to rich vegetarian curries. Images are illustrative.</p></div>
+        <div class="dish-grid">
+          <article class="dish-card">
+            <div class="dish-photo"><img src="chicken-tikka.jpg" alt="Chicken tikka pieces with onion, lemon and mint chutney" loading="lazy" /></div>
+            <div class="dish-body"><span class="dish-number">01 · FROM THE GRILL</span><h3>Chicken Tikka Platter</h3><p>Char-grilled marinated chicken with bright mint chutney, sliced onion and a squeeze of lemon.</p></div>
+          </article>
+          <article class="dish-card">
+            <div class="dish-photo"><img src="veg-maharaja.jpg" alt="Veg Maharaja curry with paneer, vegetables and coriander" loading="lazy" /></div>
+            <div class="dish-body"><span class="dish-number">02 · VEGETARIAN FAVOURITE</span><h3>Veg Maharaja</h3><p>A rich North Indian curry with paneer and seasonal vegetables in a creamy, gently spiced gravy.</p></div>
+          </article>
+          <article class="dish-card">
+            <div class="dish-photo"><img src="paneer-tikka.jpg" alt="Paneer tikka with peppers, onion and mint chutney" loading="lazy" /></div>
+            <div class="dish-body"><span class="dish-number">03 · VEGETARIAN</span><h3>Paneer Tikka</h3><p>Smoky paneer and peppers, lightly charred and served with fresh mint chutney.</p></div>
+          </article>
+        </div>
+        <div class="menu-card-grid" aria-label="Restaurant menu cards">
+          <article class="menu-card">
+            <div class="menu-card-head"><h3>AC Menu</h3><p>View the complete menu below.</p></div>
+            <iframe class="menu-card-view" src="ariyans-ac-menu.pdf#toolbar=0&amp;navpanes=0&amp;scrollbar=1&amp;view=FitH" title="Ariyan's AC restaurant menu" loading="lazy"></iframe>
+          </article>
+          <article class="menu-card">
+            <div class="menu-card-head"><h3>Non-AC Menu</h3><p>View the complete menu below.</p></div>
+            <iframe class="menu-card-view" src="ariyans-non-ac-menu.pdf#toolbar=0&amp;navpanes=0&amp;scrollbar=1&amp;view=FitH" title="Ariyan's non-AC restaurant menu" loading="lazy"></iframe>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-row">
+      <div><span class="footer-brand">Ariyan's Family Restaurant &amp; Bar</span><div class="footer-address">32/2/6, Manjari Village Road, Keshav Nagar, Mundhwa, Pune 411036</div><div class="footer-address">Menu descriptions and photos are illustrative; please confirm current availability with the restaurant.</div></div>
+      <div class="footer-socials" aria-label="Follow and review">
+        <a class="social-icon social-whatsapp" href="https://wa.me/919325024374" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><svg><use href="#icon-whatsapp"/></svg></a>
+        <a class="social-icon social-instagram" href="https://www.instagram.com/aryansfamilyofficial?igsh=czhiZWthMzU0ZDUz&utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg><use href="#icon-instagram"/></svg></a>
+        <a class="social-icon social-facebook" href="https://www.facebook.com/legendaryans/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg><use href="#icon-facebook"/></svg></a>
+        <a class="social-icon social-google" href="#google-review-assistant" onclick="openReviewAssistant(event)" aria-label="Write a Google review"><svg><use href="#icon-google-star"/></svg></a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="mobile-quick" aria-label="Quick actions">
+    <a class="btn btn-primary social-whatsapp" href="https://wa.me/919325024374" target="_blank" rel="noopener noreferrer"><svg><use href="#icon-whatsapp"/></svg>WhatsApp</a>
+    <a class="btn btn-secondary" href="#google-review-assistant" onclick="openReviewAssistant(event)"><svg><use href="#icon-google-star"/></svg>Write a Google review</a>
+  </div>
+  <div class="review-overlay" id="google-review-assistant" aria-hidden="true">
+    <section class="review-dialog" role="dialog" aria-modal="true" aria-labelledby="review-title" aria-describedby="review-intro">
+      <button class="review-close" type="button" onclick="closeReviewAssistant()" aria-label="Close review helper">&times;</button>
+      <span class="section-kicker">Google review</span>
+      <h2 id="review-title">Ready review draft</h2>
+      <p class="review-intro" id="review-intro">Choose Food, Family visit, Service, or Drinks to shuffle through 24 ready drafts per category (96 total). Copy a draft to continue on Google.</p>
+      <div class="review-moods" role="group" aria-label="Choose a review topic">
+        <button class="review-mood is-active" type="button" data-mood="food" onclick="setReviewMood('food', this)">Food</button>
+        <button class="review-mood" type="button" data-mood="family" onclick="setReviewMood('family', this)">Family visit</button>
+        <button class="review-mood" type="button" data-mood="service" onclick="setReviewMood('service', this)">Service</button>
+        <button class="review-mood" type="button" data-mood="drinks" onclick="setReviewMood('drinks', this)">Drinks</button>
+      </div>
+      <div class="review-item-picker" id="review-item-picker">
+        <label class="review-menu-label" for="review-menu-item">Choose a dish or drink</label>
+        <select class="review-menu-select" id="review-menu-item" onchange="shuffleReviewIdea()">
+          <option value="">Choose an item</option>
+          <optgroup label="Vegetarian favourites"><option>Veg Maharaja</option><option>Paneer Tikka</option><option>Paneer Malwani</option><option>Paneer Tikka Masala</option><option>Butter Paneer Masala</option><option>Paneer Angara</option><option>Veg Kolhapuri</option><option>Veg Diwani Handi</option><option>Veg Handi</option><option>Veg Kofta</option><option>Veg Jalfrezi</option><option>Dal Tadka</option><option>Hara Bhara Kebab</option><option>Paneer Kurkure</option></optgroup>
+          <optgroup label="Tandoor, meat &amp; seafood"><option>Chicken Tikka</option><option>Murg Tandoori</option><option>Murg Malai Tikka</option><option>Murg Angara</option><option>Butter Murg</option><option>Murg Handi</option><option>Mutton Handi</option><option>Mutton Kolhapuri</option><option>Fish Tikka</option><option>Surmai Curry</option><option>Prawns Koliwada</option></optgroup>
+          <optgroup label="Rice, noodles &amp; biryani"><option>Veg Biryani</option><option>Chicken Biryani</option><option>Mutton Biryani</option><option>Chicken Hyderabadi Biryani</option><option>Jeera Rice</option><option>Veg Hakka Noodles</option><option>Chicken Fried Rice</option></optgroup>
+          <optgroup label="Drinks &amp; desserts"><option>Aryan's Special Cocktail</option><option>Aryan's Special Mocktail</option><option>Lime Soda</option><option>Jeera Soda</option><option>Gulab Jamun</option><option>Rabdi</option><option>Fruit Salad</option></optgroup>
+        </select>
+      </div>
+      <div class="review-idea" id="review-idea" aria-live="polite"></div>
+      <p class="review-status" id="review-status" aria-live="polite">Your review draft is ready.</p>
+      <div class="review-actions">
+        <button class="btn btn-secondary" type="button" onclick="shuffleReviewIdea()">New review</button>
+        <button class="btn btn-primary" type="button" onclick="copyReviewIdea()"><svg><use href="#icon-google-star"/></svg>Copy review &amp; open Google</button>
+      </div>
+    </section>
+  </div>
+  <script>
+    const reviewIdeaPhrases = {
+      food: {
+        en: [
+          'Think about naming a dish you tried and describing its flavour, portion, or presentation in your own words.',
+          'You could mention what you ordered, what you liked or would change, and your overall meal impression.',
+          'A helpful food review can cover the dish, how it matched your taste, and whether you would order it again.',
+          'Describe one menu item you sampled, a real detail you noticed, and your honest takeaway from the meal.',
+          'Consider sharing what you ate, how it was prepared or served, and what stood out to you.'
+        ],
+        mr: [
+          'तुम्ही चाखलेल्या पदार्थाचे नाव आणि त्याची चव, प्रमाण किंवा सादरीकरण तुमच्या शब्दांत सांगा.',
+          'काय मागवले, काय आवडले किंवा काय बदलावेसे वाटले आणि जेवणाबद्दलचे मत लिहा.',
+          'पदार्थ, तो तुमच्या आवडीनुसार कसा होता आणि तो पुन्हा मागवाल का हे सांगू शकता.',
+          'चाखलेला पदार्थ, लक्षात आलेली खरी गोष्ट आणि जेवणाबद्दलचा प्रामाणिक निष्कर्ष सांगा.',
+          'काय खाल्ले, ते कसे दिले गेले आणि कोणती गोष्ट विशेष लक्षात राहिली ते लिहा.'
+        ]
+      },
+      family: {
+        en: [
+          'Share who you visited with, what the occasion was, and how the meal worked for your group.',
+          'You might describe the seating, atmosphere, or a real moment from your family visit.',
+          'Mention what your group ordered and one thing that made the visit comfortable or challenging.',
+          'A family review can describe the occasion, the setting, and your honest overall impression.',
+          'Think of one specific moment you remember from dining with family or friends and explain why.'
+        ],
+        mr: [
+          'कोणासोबत आणि कोणत्या प्रसंगासाठी आला होतात, तसेच तुमच्या गटासाठी जेवण कसे होते ते सांगा.',
+          'बसण्याची व्यवस्था, वातावरण किंवा कौटुंबिक भेटीतील एखादा खरा क्षण वर्णन करा.',
+          'तुमच्या गटाने काय मागवले आणि भेट आरामदायी किंवा कठीण करणारी गोष्ट कोणती होती ते लिहा.',
+          'प्रसंग, जागेचे वातावरण आणि तुमचे प्रामाणिक एकूण मत सांगू शकता.',
+          'कुटुंब किंवा मित्रांसोबतच्या जेवणातील एखादा आठवणीतला क्षण आणि त्याचे कारण सांगा.'
+        ]
+      },
+      service: {
+        en: [
+          'Describe a real interaction with the staff and how it affected your visit.',
+          'You could mention order timing, staff courtesy, or how a request was handled.',
+          'Share one specific service detail, including something that went well or could improve.',
+          'Explain what you noticed about communication and attention during your visit.',
+          'A useful service review describes what happened and how you felt about it.'
+        ],
+        mr: [
+          'कर्मचाऱ्यांसोबतचा खरा संवाद आणि त्याचा भेटीवर झालेला परिणाम सांगा.',
+          'ऑर्डरची वेळ, कर्मचाऱ्यांचे सौजन्य किंवा विनंती कशी हाताळली गेली ते लिहा.',
+          'सेवेतील एखादा विशिष्ट तपशील सांगा—काय चांगले झाले किंवा काय सुधारता येईल.',
+          'भेटीदरम्यान संवाद आणि लक्ष देण्याबद्दल काय जाणवले ते स्पष्ट करा.',
+          'सेवेबद्दलच्या उपयुक्त मतात काय घडले आणि त्याबद्दल तुम्हाला कसे वाटले हे सांगा.'
+        ]
+      },
+      drinks: {
+        en: [
+          'Name a drink you actually tried and describe its flavour, balance, or presentation.',
+          'You could mention whether you chose a cocktail, mocktail, or another drink and what you thought.',
+          'Share one real detail about the drink and whether it suited your taste.',
+          'Describe what you ordered, how it was served, and your honest impression.',
+          'A drinks review can mention the flavour, temperature, presentation, or available choices.'
+        ],
+        mr: [
+          'तुम्ही प्रत्यक्ष घेतलेल्या पेयाचे नाव आणि त्याची चव, समतोल किंवा सादरीकरण सांगा.',
+          'कॉकटेल, मॉकटेल किंवा दुसरे पेय काय घेतले आणि त्याबद्दलचे मत लिहा.',
+          'पेयाबद्दलची एक खरी गोष्ट आणि ते तुमच्या आवडीनुसार होते का ते सांगा.',
+          'काय मागवले, ते कसे दिले आणि तुमचे प्रामाणिक मत वर्णन करा.',
+          'चव, तापमान, सादरीकरण किंवा उपलब्ध पर्यायांबद्दल लिहू शकता.'
+        ]
+      }
+    };
+    let activeReviewMood = 'food';
+    let activeReviewLanguage = 'en';
+    let lastReviewIdeaIndex = {};
+
+    function openReviewAssistant(event) {
+      if (event) event.preventDefault();
+      const modal = document.getElementById('google-review-assistant');
+      modal.classList.add('is-open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      document.getElementById('review-menu-item').value = '';
+      shuffleReviewIdea();
+    }
+    function closeReviewAssistant() {
+      const modal = document.getElementById('google-review-assistant');
+      modal.classList.remove('is-open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+    function setReviewMood(mood, button) {
+      activeReviewMood = mood;
+      document.querySelectorAll('.review-mood').forEach(chip => chip.classList.remove('is-active'));
+      button.classList.add('is-active');
+      document.getElementById('review-menu-item').value = '';
+      document.getElementById('review-item-picker').hidden = mood !== 'food' && mood !== 'drinks';
+      shuffleReviewIdea();
+    }
+    function toggleReviewLanguage() {
+      activeReviewLanguage = activeReviewLanguage === 'en' ? 'mr' : 'en';
+      document.getElementById('review-language-toggle').textContent = activeReviewLanguage === 'mr' ? 'Switch to English' : 'मराठीमध्ये लिहा';
+      shuffleReviewIdea();
+    }
+    function shuffleReviewIdea() {
+      const key = activeReviewLanguage + ':' + activeReviewMood;
+      const ideas = reviewIdeaPhrases[activeReviewMood][activeReviewLanguage];
+      let index = Math.floor(Math.random() * 20);
+      if (index === lastReviewIdeaIndex[key]) index = (index + 1 + Math.floor(Math.random() * 19)) % 20;
+      lastReviewIdeaIndex[key] = index;
+      const item = document.getElementById('review-menu-item').value;
+      const itemNote = item ? (activeReviewLanguage === 'mr' ? ` निवडलेला पदार्थ/पेय: ${item}.` : ` Selected item: ${item}.`) : '';
+      const variation = Math.floor(index / ideas.length);
+      const focus = {
+        en: {
+          food: ['Think about flavour, portion size, or presentation.', 'Mention what you liked or would change about the dish.', 'Consider freshness, preparation, or value for money.', 'Share one specific food detail that stood out.'],
+          family: ['Consider the occasion, seating, or atmosphere.', 'Mention what worked well for your group.', 'Share a detail families may find useful.', 'Include something that could have been better.'],
+          service: ['Consider staff courtesy, timing, or communication.', 'Mention how a request or question was handled.', 'Share a specific moment from the service.', 'Include what worked well or could improve.'],
+          drinks: ['Consider flavour, balance, or presentation.', 'Mention whether the drink suited your taste.', 'Share a detail about how it was served.', 'Comment on the beverage options you noticed.']
+        },
+        mr: {
+          food: ['चव, प्रमाण किंवा सादरीकरण याबद्दल लिहा.', 'पदार्थात काय आवडले किंवा काय बदलावेसे वाटले ते सांगा.', 'ताजेपणा, तयारी किंवा किमतीच्या मानाने मूल्य नमूद करा.', 'लक्षात राहिलेला एक विशिष्ट तपशील सांगा.'],
+          family: ['प्रसंग, बसण्याची व्यवस्था किंवा वातावरण नमूद करा.', 'तुमच्या गटासाठी काय सोयीचे होते ते सांगा.', 'कुटुंबांना उपयोगी पडेल असा तपशील जोडा.', 'काय अधिक चांगले होऊ शकले असते ते सांगा.'],
+          service: ['कर्मचाऱ्यांचे सौजन्य, वेळ किंवा संवाद याबद्दल लिहा.', 'प्रश्न किंवा विनंती कशी हाताळली गेली ते सांगा.', 'सेवेतील एखादा विशिष्ट प्रसंग नमूद करा.', 'काय चांगले होते किंवा काय सुधारता येईल ते सांगा.'],
+          drinks: ['चव, समतोल किंवा सादरीकरण याबद्दल लिहा.', 'पेय तुमच्या आवडीनुसार होते का ते सांगा.', 'ते कसे दिले गेले याबद्दल तपशील जोडा.', 'लक्षात आलेल्या पेयांच्या पर्यायांबद्दल लिहा.']
+        }
+      }[activeReviewLanguage][activeReviewMood];
+      const finish = {
+        en: ['Add your honest overall impression.', 'Keep the wording specific to your visit.', 'Share only details you personally experienced.', 'Use this idea as a guide and write in your own words.'],
+        mr: ['तुमचे प्रामाणिक एकूण मत जोडा.', 'मजकूर तुमच्या भेटीशी संबंधित ठेवा.', 'तुम्ही प्रत्यक्ष अनुभवलेले तपशीलच लिहा.', 'ही कल्पना मार्गदर्शनासाठी वापरा आणि स्वतःच्या शब्दांत लिहा.']
+      }[activeReviewLanguage];
+      const line = ideas[index % ideas.length];
+      document.getElementById('review-idea').innerHTML = `<p>${line}${itemNote}</p><p>${focus[variation]}</p><p>${finish[variation]}</p>`;
+      document.getElementById('review-status').textContent = activeReviewLanguage === 'mr' ? 'पुनरावलोकन तयार आहे.' : 'Your review draft is ready.';
+    }
+    async function copyReviewIdea() {
+      const idea = Array.from(document.querySelectorAll('#review-idea p')).map(p => p.textContent).join('\n');
+      const status = document.getElementById('review-status');
+      window.open("https://www.google.com/maps/place/Aryan's+Family+Restaurant+%26+Bar/@18.5265193,73.9537672,17z/data=!4m8!3m7!1s0x3bc2c2372fc2755d:0xf79db1cf45c53816!8m2!3d18.5265193!4d73.9537672!9m1!1b1!16s%2Fg%2F1pp2tyh4z?entry=ttu", '_blank', 'noopener,noreferrer');
+      try {
+        await navigator.clipboard.writeText(idea);
+        status.textContent = activeReviewLanguage === 'mr' ? 'कल्पना कॉपी झाली. ती तुमच्या स्वतःच्या पुनरावलोकनासाठी संपादित करा.' : 'Idea copied. Edit it to write your own review on Google.';
+      } catch (error) {
+        status.textContent = activeReviewLanguage === 'mr' ? 'कल्पना निवडण्यासाठी मजकूरावर क्लिक करून कॉपी करा.' : 'Copy the visible idea text and personalize it on Google.';
+      }
+    }
+    // Show complete, copy-ready drafts instead of writing prompts.
+    function shuffleReviewIdea() {
+      const item = document.getElementById('review-menu-item').value;
+      const drafts = {
+        en: {
+          food: [
+            [`Ariyan's Family Restaurant & Bar has a tempting selection of dishes.`, `${item || 'The food'} makes this a lovely choice for a meal in Keshav Nagar.`, `A great place to explore Indian flavours.`],
+            [`The menu at Ariyan's Family Restaurant & Bar has plenty to discover.`, `${item || 'The dishes'} are a highlight for anyone who enjoys Indian food.`, `Worth visiting for a relaxed meal in Pune.`]
+          ],
+          family: [
+            [`Ariyan's Family Restaurant & Bar is a welcoming choice for a family meal.`, `There is a variety of dishes to suit different tastes.`, `A nice place to get together over good food in Keshav Nagar.`],
+            [`A great spot for a family meal in Pune.`, `Ariyan's offers food choices for different preferences and occasions.`, `A comfortable place to enjoy time together.`]
+          ],
+          service: [
+            [`Ariyan's Family Restaurant & Bar offers a pleasant dining setting.`, `The menu has plenty of options to explore.`, `A good choice for a meal in Keshav Nagar.`],
+            [`A nice restaurant to visit in Pune.`, `Ariyan's has a varied menu and a comfortable atmosphere.`, `A good option for dining with family or friends.`]
+          ],
+          drinks: [
+            [`Ariyan's Family Restaurant & Bar offers cocktails, mocktails, and other drink choices.`, `${item || 'The drinks'} pair well with a meal or an evening out.`, `A nice place to relax in Keshav Nagar.`],
+            [`A good spot in Pune for food and drinks.`, `The menu includes cocktails, mocktails, and classic refreshments.`, `Ariyan's is worth a visit with friends or family.`]
+          ]
+        },
+        mr: {
+          food: [
+            [`Ariyan's Family Restaurant & Bar येथे पदार्थांचे छान पर्याय आहेत.`, `${item || 'येथील जेवण'} केशव नगरमध्ये जेवणासाठी एक चांगला पर्याय आहे.`, `भारतीय चवींचा आस्वाद घेण्यासाठी छान ठिकाण.`],
+            [`Ariyan's Family Restaurant & Bar च्या मेनूमध्ये पाहण्यासारखे बरेच पर्याय आहेत.`, `${item || 'येथील पदार्थ'} भारतीय जेवण आवडणाऱ्यांसाठी खास आहेत.`, `पुण्यात निवांत जेवणासाठी भेट देण्यासारखे ठिकाण.`]
+          ],
+          family: [
+            [`Ariyan's Family Restaurant & Bar कुटुंबासोबत जेवणासाठी छान पर्याय आहे.`, `वेगवेगळ्या आवडीनुसार मेनूमध्ये पदार्थ उपलब्ध आहेत.`, `केशव नगरमध्ये एकत्र जेवणासाठी छान ठिकाण.`],
+            [`पुण्यात कुटुंबासोबत जेवणासाठी छान ठिकाण.`, `Ariyan's मध्ये विविध आवडी आणि प्रसंगांसाठी मेनूचे पर्याय आहेत.`, `एकत्र वेळ घालवण्यासाठी योग्य जागा.`]
+          ],
+          service: [
+            [`Ariyan's Family Restaurant & Bar मध्ये जेवणासाठी छान वातावरण आहे.`, `मेनूमध्ये निवडण्यासाठी अनेक पर्याय आहेत.`, `केशव नगरमध्ये जेवणासाठी चांगला पर्याय.`],
+            [`पुण्यात भेट देण्यासारखे छान रेस्टॉरंट.`, `Ariyan's मध्ये विविध मेनू पर्याय आणि आरामदायी वातावरण आहे.`, `कुटुंब किंवा मित्रांसोबत जेवणासाठी चांगली जागा.`]
+          ],
+          drinks: [
+            [`Ariyan's Family Restaurant & Bar मध्ये कॉकटेल, मॉकटेल आणि इतर पेयांचे पर्याय आहेत.`, `${item || 'येथील पेये'} जेवणासोबत किंवा संध्याकाळसाठी छान आहेत.`, `केशव नगरमध्ये निवांत वेळ घालवण्यासाठी चांगले ठिकाण.`],
+            [`पुण्यात जेवण आणि पेयांसाठी छान ठिकाण.`, `मेनूमध्ये कॉकटेल, मॉकटेल आणि नेहमीच्या पेयांचे पर्याय आहेत.`, `मित्र किंवा कुटुंबासोबत भेट देण्यासारखे ठिकाण.`]
+          ]
+        }
+      };
+      const baseDrafts = drafts[activeReviewLanguage][activeReviewMood];
+      const closers = activeReviewLanguage === 'mr'
+        ? ['पुन्हा भेट देण्यासारखे ठिकाण.', 'पुण्यातील जेवणासाठी छान पर्याय.', 'मित्रांसोबत वेळ घालवण्यासाठी योग्य.', 'मेनूमधील पर्याय नक्की पाहा.', 'केशव नगरमध्ये भेट देण्यासारखे.', 'जेवणासाठी लक्षात ठेवण्यासारखे ठिकाण.', 'कुटुंबासोबत येण्यासाठी छान.', 'पेय आणि जेवणासाठी चांगली जागा.', 'आरामदायी भेटीसाठी योग्य.', 'पुण्यातील रेस्टॉरंटच्या यादीत समाविष्ट करण्यासारखे.', 'वेगवेगळ्या आवडींसाठी पर्याय आहेत.', 'पुढच्या भेटीत आणखी पदार्थ पाहण्याची इच्छा होईल.']
+        : ['A place worth visiting again.', 'A lovely choice for dining in Pune.', 'A nice spot to spend time with friends.', 'The menu is worth exploring.', 'Worth checking out in Keshav Nagar.', 'A restaurant to keep in mind for a meal.', 'A pleasant choice for a family outing.', 'A good option for food and drinks.', 'A comfortable choice for a relaxed meal.', 'A place to add to your Pune dining list.', 'There are options for different preferences.', 'A spot to consider for the next outing.'];
+      // Two category drafts combined with twelve endings provide 24 ready drafts per category.
+      const pool = baseDrafts.flatMap(draft => closers.map(closer => [draft[0], draft[1], closer]));
+      const previous = lastReviewIdeaIndex[activeReviewLanguage + ':' + activeReviewMood];
+      let index = Math.floor(Math.random() * pool.length);
+      if (index === previous) index = (index + 1) % pool.length;
+      lastReviewIdeaIndex[activeReviewLanguage + ':' + activeReviewMood] = index;
+      document.getElementById('review-idea').innerHTML = pool[index].map(line => `<p>${line}</p>`).join('');
+      document.getElementById('review-status').textContent = activeReviewLanguage === 'mr' ? 'पुनरावलोकन तयार आहे.' : 'Your review draft is ready.';
+    }
+    async function copyReviewIdea() {
+      const review = Array.from(document.querySelectorAll('#review-idea p')).map(p => p.textContent).join('\n');
+      const status = document.getElementById('review-status');
+      const googleUrl = "https://www.google.com/maps/place/Aryan's+Family+Restaurant+%26+Bar/@18.5265193,73.9537672,17z/data=!4m8!3m7!1s0x3bc2c2372fc2755d:0xf79db1cf45c53816!8m2!3d18.5265193!4d73.9537672!9m1!1b1!16s%2Fg%2F1pp2tyh4z?entry=ttu";
+      const googleTab = window.open(googleUrl, '_blank');
+      if (googleTab) googleTab.opener = null;
+      try {
+        await navigator.clipboard.writeText(review);
+        status.textContent = activeReviewLanguage === 'mr' ? 'पुनरावलोकन कॉपी झाले. Google उघडत आहे…' : 'Review copied. Opening Google…';
+      } catch (error) {
+        const copyField = document.createElement('textarea');
+        copyField.value = review;
+        copyField.setAttribute('readonly', '');
+        copyField.style.position = 'fixed';
+        copyField.style.opacity = '0';
+        document.body.appendChild(copyField);
+        copyField.select();
+        const copied = document.execCommand('copy');
+        copyField.remove();
+        status.textContent = copied
+          ? (activeReviewLanguage === 'mr' ? 'पुनरावलोकन कॉपी झाले. Google उघडत आहे…' : 'Review copied. Opening Google…')
+          : (activeReviewLanguage === 'mr' ? 'कॉपी करता आले नाही. पुन्हा प्रयत्न करा.' : 'Copy was blocked by the browser. Please try again.');
+      }
+      if (!googleTab) status.textContent += activeReviewLanguage === 'mr' ? ' Google लिंक पॉप-अप ब्लॉकरने रोखली.' : ' The browser blocked the Google tab.';
+    }
+    document.getElementById('google-review-assistant').addEventListener('click', event => {
+      if (event.target.id === 'google-review-assistant') closeReviewAssistant();
+    });
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') closeReviewAssistant();
+    });
+  </script>
+</body>
+</html>
+
+
+
+
+
+
