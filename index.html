@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#111713" />
+  <meta name="description" content="Aryan's Family Restaurant & Bar in Z-Corner, Manjari Village, Pune. Explore our food, drinks and ways to connect." />
+  <title>Aryan's Family Restaurant & Bar | Pune</title>
+  <style>
+    :root {
+      --ink: #f8f5ed;
+      --muted: #b5b9b1;
+      --bg: #111713;
+      --panel: #1a211c;
+      --panel-2: #202922;
+      --line: rgba(255,255,255,.11);
+      --gold: #d9a85e;
+      --gold-bright: #f0c57d;
+      --green: #91a88f;
+      --red-offer: #e11d48;
+      --page: 1200px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; }
+    img { display: block; width: 100%; }
+    .wrap { width: min(var(--page), calc(100% - 48px)); margin-inline: auto; }
+    .site-header {
+      position: sticky; top: 0; z-index: 20;
+      background: rgba(17,23,19,.95); backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav { min-height: 90px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    
+    /* Enlarged Logo Slot integrated with your image */
+    .brand { display: inline-flex; align-items: center; gap: 14px; text-decoration: none; min-width: 0; }
+    .brand-mark {
+      width: 62px; height: 62px; flex: 0 0 62px; display: grid; place-items: center;
+      border: 1.5px solid rgba(217,168,94,.7); border-radius: 16px; color: var(--gold-bright);
+      background: #172019; overflow: hidden;
+      box-shadow: 0 4px 14px rgba(0,0,0,.45);
+    }
+    .brand-mark img { width: 100%; height: 100%; object-fit: contain; background: #fff; padding: 2px; }
+    .brand-name { display: block; font-family: Georgia, "Times New Roman", serif; font-size: 24px; font-weight: 700; line-height: 1.1; color: #fff; letter-spacing: -.02em; }
+    .brand-sub { display: block; margin-top: 5px; color: var(--gold-bright); font-size: 10.5px; letter-spacing: .2em; font-weight: 600; }
+    
+    .nav-right { display: flex; align-items: center; gap: 24px; }
+    .nav-links { display: flex; align-items: center; gap: 22px; }
+    .nav-links a { text-decoration: none; color: var(--muted); font-size: 14px; font-weight: 500; transition: color .2s; }
+    .nav-links a:hover { color: var(--gold-bright); }
+    
+    .socials { display: flex; align-items: center; gap: 9px; }
+    .social-icon {
+      width: 40px; height: 40px; display: inline-grid; place-items: center;
+      border: 1px solid var(--line); border-radius: 50%; color: var(--ink); background: rgba(255,255,255,.035);
+      transition: transform .2s, border-color .2s, background .2s; text-decoration: none;
+    }
+    .social-icon:hover { transform: translateY(-2px); border-color: var(--gold); background: rgba(217,168,94,.1); }
+    .social-icon svg { width: 19px; height: 19px; }
+
+    .hero { padding: 62px 0 52px; }
+    .hero-grid { display: grid; grid-template-columns: 1.02fr .98fr; align-items: center; gap: 54px; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 10px; color: var(--gold-bright); font-size: 11px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; }
+    .eyebrow::before { content: ""; width: 28px; height: 1px; background: var(--gold); }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { max-width: 620px; margin: 20px 0 18px; font-family: Georgia, "Times New Roman", serif; font-size: clamp(42px, 5.2vw, 70px); line-height: 1.05; font-weight: 500; letter-spacing: -.04em; }
+    h1 em { color: var(--gold-bright); font-weight: 400; }
+    .hero-copy { max-width: 520px; color: var(--muted); font-size: 16px; }
+    .hero-address { display: flex; align-items: flex-start; gap: 9px; margin: 24px 0 27px; color: #d5d6cf; font-size: 13px; }
+    .pin { color: var(--gold-bright); flex: 0 0 auto; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn { min-height: 48px; padding: 12px 19px; display: inline-flex; align-items: center; justify-content: center; gap: 10px; border: 1px solid var(--line); border-radius: 9px; text-decoration: none; font-weight: 650; font-size: 13px; transition: .2s; cursor: pointer; }
+    .btn-primary { border-color: var(--gold); background: var(--gold); color: #21180d; }
+    .btn-primary:hover { background: var(--gold-bright); border-color: var(--gold-bright); transform: translateY(-2px); }
+    .btn-secondary:hover { border-color: var(--gold); color: var(--gold-bright); }
+    .btn svg { width: 18px; height: 18px; }
+    
+    .hero-photo { position: relative; min-height: 400px; border-radius: 18px; overflow: hidden; border: 1px solid rgba(255,255,255,.14); background: #30352f; }
+    .hero-photo img { position: absolute; inset: 0; height: 100%; object-fit: cover; }
+    .hero-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(12,16,13,.76), transparent 55%), linear-gradient(90deg, rgba(12,16,13,.14), transparent); }
+    .photo-caption { position: absolute; z-index: 1; bottom: 22px; left: 22px; right: 22px; display: flex; align-items: end; justify-content: space-between; gap: 12px; }
+    .photo-caption small { display: block; color: #e2d4bd; text-transform: uppercase; letter-spacing: .16em; font-size: 9px; }
+    .photo-caption strong { display: block; margin-top: 5px; font-family: Georgia, serif; font-size: 21px; font-weight: 500; }
+    .photo-chip { border: 1px solid rgba(255,255,255,.35); border-radius: 99px; padding: 7px 11px; color: #fff; font-size: 10px; white-space: nowrap; }
+    
+    .section { padding: 64px 0; border-top: 1px solid var(--line); }
+    .section-head { display: flex; justify-content: space-between; align-items: end; gap: 24px; margin-bottom: 28px; }
+    .section-kicker { display: block; color: var(--gold-bright); font-size: 10.5px; letter-spacing: .2em; text-transform: uppercase; font-weight: 700; margin-bottom: 8px; }
+    h2 { margin-bottom: 0; font-family: Georgia, "Times New Roman", serif; font-weight: 500; font-size: clamp(30px, 4vw, 44px); line-height: 1.12; letter-spacing: -.025em; }
+    .section-note { max-width: 480px; margin: 0; color: var(--muted); font-size: 13px; }
+    
+    .menu-category-title {
+      font-family: Georgia, serif; font-size: 26px; color: var(--gold-bright);
+      margin: 36px 0 18px; padding-bottom: 8px; border-bottom: 1px solid rgba(217,168,94,.25);
+      display: flex; align-items: center; gap: 12px;
+    }
+    .menu-category-title::before { content: ""; width: 8px; height: 8px; background: var(--gold); border-radius: 50%; }
+
+    .dish-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+    .dish-card { min-width: 0; overflow: hidden; border: 1px solid var(--line); border-radius: 14px; background: var(--panel); transition: transform .25s, border-color .25s; }
+    .dish-card:hover { transform: translateY(-4px); border-color: rgba(217,168,94,.4); }
+    .dish-photo { aspect-ratio: 1.48 / 1; overflow: hidden; background: var(--panel-2); position: relative; }
+    .dish-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform .45s; }
+    .dish-card:hover .dish-photo img { transform: scale(1.04); }
+    .dish-badge {
+      position: absolute; top: 12px; right: 12px;
+      background: rgba(17,23,19,.88); border: 1px solid rgba(217,168,94,.45);
+      color: var(--gold-bright); font-size: 9.5px; font-weight: 700;
+      letter-spacing: .08em; text-transform: uppercase; padding: 4px 9px; border-radius: 99px;
+    }
+    .dish-body { padding: 18px; }
+    .dish-number { color: var(--gold); font-size: 10px; letter-spacing: .14em; font-weight: 700; }
+    .dish-body h3 { margin: 6px 0 6px; font-family: Georgia, serif; font-size: 20px; font-weight: 500; }
+    .dish-body p { margin: 0; color: var(--muted); font-size: 12px; }
+
+    .speciality-section { background: #131a15; }
+    .speciality-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+    .speciality-card {
+      border: 1px solid var(--line); border-radius: 16px; background: var(--panel);
+      overflow: hidden; display: flex; flex-direction: column; transition: transform .25s, border-color .25s;
+    }
+    .speciality-card:hover { transform: translateY(-4px); border-color: rgba(217,168,94,.45); }
+    .speciality-photo { aspect-ratio: 1.5 / 1; overflow: hidden; background: #232c25; position: relative; }
+    .speciality-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .speciality-body { padding: 20px; flex: 1; display: flex; flex-direction: column; }
+    .speciality-tag { color: var(--gold); font-size: 10px; letter-spacing: .16em; font-weight: 700; text-transform: uppercase; }
+    .speciality-body h3 { margin: 8px 0; font-family: Georgia, serif; font-size: 21px; font-weight: 500; color: #fff; }
+    .speciality-body p { margin: 0; color: var(--muted); font-size: 12.5px; line-height: 1.5; }
+
+    .drink-section { background: #151c17; }
+    .drink-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+    .drink-card { display: grid; grid-template-columns: minmax(140px, .85fr) 1.15fr; min-height: 220px; overflow: hidden; background: var(--panel); border: 1px solid var(--line); border-radius: 16px; position: relative; }
+    .drink-photo { min-height: 220px; overflow: hidden; background: var(--panel-2); position: relative; }
+    .drink-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .drink-copy { padding: 22px; align-self: center; }
+    .drink-copy h3 { margin: 8px 0; font-family: Georgia, serif; font-weight: 500; font-size: 23px; line-height: 1.18; }
+    .drink-copy p { margin: 0; color: var(--muted); font-size: 12.5px; }
+    .drink-tag { color: var(--gold-bright); font-size: 9.5px; letter-spacing: .15em; text-transform: uppercase; font-weight: 700; }
+    .offer-badge {
+      display: inline-block; background: var(--red-offer); color: #fff;
+      font-size: 11px; font-weight: 800; padding: 4px 10px; border-radius: 6px;
+      margin-top: 10px; letter-spacing: .04em; text-transform: uppercase;
+      box-shadow: 0 4px 12px rgba(225,29,72,.35);
+    }
+
+    .menu-card-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 17px; margin-top: 36px; }
+    .menu-card { min-width: 0; overflow: hidden; border: 1px solid var(--line); border-radius: 14px; background: var(--panel); }
+    .menu-card-head { padding: 17px 18px 13px; }
+    .menu-card-head h3 { margin: 0; font-family: Georgia, serif; font-size: 21px; font-weight: 500; }
+    .menu-card-head p { margin: 5px 0 0; color: var(--muted); font-size: 12px; }
+    .menu-card-view { width: 100%; height: 620px; display: block; border: 0; border-top: 1px solid var(--line); background: #fff; }
+
+    .quick-links { padding: 0 0 18px; }
+    .quick-links-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+    .quick-link { min-width: 0; min-height: 68px; padding: 10px 13px; display: flex; align-items: center; gap: 11px; text-decoration: none; color: var(--ink); background: var(--panel); border: 1px solid var(--line); border-radius: 12px; transition: border-color .2s, transform .2s, background .2s; }
+    .quick-link:hover { border-color: rgba(217,168,94,.65); background: var(--panel-2); transform: translateY(-2px); }
+    .quick-link > svg:first-child { width: 21px; height: 21px; flex: 0 0 21px; color: var(--gold-bright); }
+    .quick-link span { min-width: 0; flex: 1; }
+    .quick-link strong { display: block; font-size: 12px; line-height: 1.25; }
+    .quick-link small { display: block; margin-top: 3px; color: var(--muted); font-size: 10px; }
+    .quick-link .quick-arrow { width: 15px; height: 15px; flex: 0 0 15px; color: var(--muted); }
+
+    .social-icon.social-whatsapp { color: #25d366; border-color: rgba(37,211,102,.35); background: rgba(37,211,102,.10); }
+    .social-icon.social-instagram { color: #ff4f91; border-color: rgba(225,48,108,.40); background: linear-gradient(145deg, rgba(131,58,180,.20), rgba(253,29,29,.13), rgba(252,176,69,.13)); }
+    .social-icon.social-facebook { color: #55a0ff; border-color: rgba(24,119,242,.40); background: rgba(24,119,242,.13); }
+    .social-icon.social-google { color: #f6ba2c; border-color: rgba(246,186,44,.42); background: rgba(246,186,44,.13); }
+    .quick-link.social-whatsapp { border-color: rgba(37,211,102,.28); background: linear-gradient(110deg, rgba(37,211,102,.10), var(--panel) 58%); }
+    .quick-link.social-instagram { border-color: rgba(225,48,108,.30); background: linear-gradient(110deg, rgba(131,58,180,.15), rgba(225,48,108,.08) 42%, var(--panel) 80%); }
+    .quick-link.social-facebook { border-color: rgba(24,119,242,.30); background: linear-gradient(110deg, rgba(24,119,242,.13), var(--panel) 58%); }
+    .quick-link.social-google { border-color: rgba(246,186,44,.32); background: linear-gradient(110deg, rgba(246,186,44,.12), var(--panel) 58%); }
+    .quick-link.social-whatsapp > svg:first-child { color: #25d366; }
+    .quick-link.social-instagram > svg:first-child { color: #ff4f91; }
+    .quick-link.social-facebook > svg:first-child { color: #55a0ff; }
+    .quick-link.social-google > svg:first-child { color: #f6ba2c; }
+
+    footer { padding: 32px 0 40px; color: #939a91; border-top: 1px solid var(--line); font-size: 12px; }
+    .footer-row { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .footer-brand { color: var(--ink); font-family: Georgia, serif; font-size: 25px; font-weight: 600; }
+    .footer-address { margin-top: 4px; }
+    .footer-socials { display: flex; align-items: center; gap: 8px; }
+    .mobile-quick { display: none; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+    
+
+.footer-bottom {
+  width: 100%;
+  display: block;
+  text-align: center;
+  margin-top: 20px;
+  padding: 16px 15px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  font-size: 12px;
+  color: #939a91;
+  box-sizing: border-box;
+}
+
+.footer-bottom p {
+  margin: 4px 0;
+  text-align: center;
+}
+
+
+    
+    /* Review Assistant Modal */
+    .review-overlay { display: none; position: fixed; inset: 0; z-index: 100; align-items: center; justify-content: center; padding: 18px; background: rgba(5,8,6,.82); backdrop-filter: blur(8px); }
+    .review-overlay.is-open { display: flex; }
+    .review-dialog { position: relative; width: min(580px, 100%); max-height: min(92vh, 760px); overflow: auto; padding: clamp(22px, 5vw, 36px); border: 1px solid rgba(217,168,94,.42); border-radius: 18px; background: #18211b; box-shadow: 0 28px 90px rgba(0,0,0,.6); }
+    .review-close { position: absolute; top: 16px; right: 16px; width: 38px; height: 38px; border: 1px solid var(--line); border-radius: 50%; background: #202922; color: var(--ink); font-size: 23px; line-height: 1; cursor: pointer; }
+    .review-dialog h2 { max-width: 440px; margin: 7px 40px 10px 0; font-size: clamp(28px, 6vw, 38px); }
+    .review-intro { max-width: 460px; margin: 0 0 16px; color: var(--muted); font-size: 13px; }
+    .review-moods { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
+    .review-mood { min-height: 38px; padding: 8px 14px; border: 1px solid var(--line); border-radius: 99px; background: #202922; color: #d5d8d2; font: inherit; font-size: 12px; cursor: pointer; }
+    .review-mood:hover, .review-mood.is-active { border-color: var(--gold); background: rgba(217,168,94,.16); color: var(--gold-bright); font-weight: 600; }
+    
+    .review-item-picker { margin-bottom: 14px; }
+    .review-menu-label { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: .12em; color: var(--gold); font-weight: 700; margin-bottom: 6px; }
+    .review-menu-select { width: 100%; min-height: 42px; border-radius: 10px; background: #111713; border: 1px solid var(--line); color: var(--ink); padding: 8px 12px; font-size: 13px; font-family: inherit; }
+    .review-menu-select:focus { outline: none; border-color: var(--gold); }
+
+    .review-idea { min-height: 120px; display: grid; align-content: center; margin: 16px 0 10px; padding: 20px; border: 1px solid rgba(217,168,94,.28); border-radius: 13px; background: linear-gradient(145deg, rgba(217,168,94,.10), rgba(255,255,255,.025)); color: #f5eee1; font-family: Georgia, serif; font-size: 17px; line-height: 1.6; }
+    .review-idea p { margin: 0; }
+    .review-status { min-height: 21px; margin: 8px 0 14px; color: var(--muted); font-size: 11.5px; }
+    .review-actions { display: grid; grid-template-columns: .9fr .8fr 1.2fr; gap: 9px; }
+    .review-actions .btn { width: 100%; font-size: 12px; }
+
+    @media (max-width: 850px) {
+      .wrap { width: min(var(--page), calc(100% - 36px)); }
+      .hero-grid { gap: 28px; }
+      .dish-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .speciality-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 640px) {
+      .wrap { width: calc(100% - 32px); }
+      .nav { min-height: 72px; }
+      .brand-name { font-size: 18px; }
+      .brand-mark { width: 50px; height: 50px; flex-basis: 50px; }
+      .nav-links { display: none; }
+      .hero-grid { grid-template-columns: 1fr; gap: 24px; }
+      .dish-grid { grid-template-columns: 1fr; gap: 14px; }
+      .speciality-grid { grid-template-columns: 1fr; gap: 14px; }
+      .drink-grid { grid-template-columns: 1fr; gap: 14px; }
+      .drink-card { grid-template-columns: 40% 60%; }
+      .menu-card-grid { grid-template-columns: 1fr; }
+      .menu-card-view { height: 500px; }
+      .quick-links-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .review-actions { grid-template-columns: 1fr 1fr; }
+      .review-actions .btn-primary { grid-column: 1 / -1; }
+      .mobile-quick {
+        position: fixed; left: 12px; right: 12px; bottom: max(12px, env(safe-area-inset-bottom)); z-index: 30;
+        display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 8px;
+        background: rgba(22,29,24,.96); border: 1px solid var(--line); border-radius: 14px; backdrop-filter: blur(16px);
+      }
+      footer { padding-bottom: 84px; }
+    }
+      .banquet-card { grid-column:1 / -1; display:grid; grid-template-columns:minmax(280px,.85fr) 1.15fr; }
+    .banquet-card .speciality-photo { aspect-ratio:auto; min-height:100%; }
+    .banquet-card .speciality-photo img { min-height:100%; object-fit:cover; }
+    .banquet-body { padding:clamp(20px,3vw,32px); }
+    .banquet-body h3 { font-size:clamp(25px,3vw,32px); }
+    .banquet-offer { display:inline-flex; align-self:flex-start; margin:2px 0 10px !important; padding:7px 12px; border-radius:99px; background:#fff0d2; color:#744719 !important; font-weight:700; font-size:13px !important; }
+    .banquet-intro { margin-bottom:14px !important; }
+    .banquet-features { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:9px 14px; margin:0; padding:0; list-style:none; }
+    .banquet-features li { position:relative; padding-left:15px; color:#f8f8f8; font:500 12px/1.45 var(--body-font); }
+    .banquet-features li::before { content:""; position:absolute; left:0; top:.48em; width:7px; height:7px; border-radius:50%; background:#d77854; }
+    @media(max-width:850px) { .banquet-features { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+    @media(max-width:640px) { .banquet-card { grid-column:auto; grid-template-columns:1fr; } .banquet-card .speciality-photo { min-height:220px; aspect-ratio:1.5/1; } .banquet-features { gap:8px 12px; } }
+</style>
+</head>
+<body>
+  <svg class="sr-only" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="icon-whatsapp" viewBox="0 0 24 24"><path d="M20.5 11.7a8.4 8.4 0 0 1-12.4 7.4L3 20.4l1.4-4.9a8.4 8.4 0 1 1 16.1-3.8Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M8.3 7.9c.2-.4.4-.4.7-.4h.5c.2 0 .4.1.5.4l.8 1.9c.1.3.1.5-.1.7l-.6.7c-.2.2-.2.4 0 .6.4.8 1.1 1.5 1.9 1.9.2.1.4.1.6-.1l.8-.9c.2-.2.4-.3.7-.2l1.8.9c.3.1.4.3.4.5 0 .3-.2 1.1-.7 1.5-.5.5-1.1.7-1.8.7-.6 0-1.5-.2-2.8-.9-1.7-.9-3.1-2.6-3.5-3.2-.4-.6-1-1.6-1-2.5 0-.9.5-1.4.7-1.6Z" fill="currentColor"/></symbol>
+    <symbol id="icon-instagram" viewBox="0 0 24 24"><rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4.1" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.8" cy="6.5" r="1.15" fill="currentColor"/></symbol>
+    <symbol id="icon-facebook" viewBox="0 0 24 24"><path fill="currentColor" d="M13.4 21v-8.2h2.8l.4-3.2h-3.2V7.5c0-.9.3-1.5 1.6-1.5h1.7V3.1c-.3 0-1.4-.1-2.6-.1-2.6 0-4.4 1.6-4.4 4.5v2.1H6.8v3.2h2.9V21h3.7Z"/></symbol>
+    <symbol id="icon-google-star" viewBox="0 0 24 24"><path fill="currentColor" d="m12 2.7 2.8 5.7 6.3.9-4.6 4.5 1.1 6.3-5.6-3-5.6 3 1.1-6.3-4.6-4.5 6.3-.9L12 2.7Z"/></symbol>
+    <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="icon-pin" viewBox="0 0 24 24"><path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 1 1 14 0Z" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="10" r="2.2" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+  </svg>
+
+  <!-- Header with official logo image integrated -->
+  <header class="site-header" id="top">
+    <div class="wrap nav">
+      <a class="brand" href="#top" aria-label="Aryan's Restaurant home">
+        <div class="brand-mark">
+          <img src="logo-clean.png" alt="Aryan's Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+          <span style="display:none;">AR</span>
+        </div>
+        <span>
+          <span class="brand-name">Aryan's</span>
+          <span class="brand-sub">FAMILY RESTAURANT &amp; BAR</span>
+        </span>
+      </a>
+      <div class="nav-right">
+        <nav class="nav-links" aria-label="Main navigation">
+          <a href="#speciality">Our Specialty</a>
+          <a href="#menu">Menu</a>
+          <a href="#drinks">Drinks</a>
+          <a href="#visit">Find us</a>
+        </nav>
+        <div class="socials" aria-label="Social links">
+          <a class="social-icon social-whatsapp" href="https://wa.me/919325024374" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><svg><use href="#icon-whatsapp"/></svg></a>
+          <a class="social-icon social-instagram" href="https://www.instagram.com/aryansfamilyofficial?igsh=czhiZWthMzU0ZDUz&utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg><use href="#icon-instagram"/></svg></a>
+          <a class="social-icon social-facebook" href="https://www.facebook.com/legendaryans/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg><use href="#icon-facebook"/></svg></a>
+          <a class="social-icon social-google" href="#google-review-assistant" onclick="openReviewAssistant(event)" aria-label="Write a Google review"><svg><use href="#icon-google-star"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="quick-links" aria-label="Connect with Aryan's">
+      <div class="wrap quick-links-grid">
+        <a class="quick-link social-whatsapp" href="https://wa.me/919325024374" target="_blank" rel="noopener noreferrer"><svg><use href="#icon-whatsapp"/></svg><span><strong>WhatsApp</strong><small>Chat with us</small></span><svg class="quick-arrow"><use href="#icon-arrow"/></svg></a>
+        <a class="quick-link social-instagram" href="https://www.instagram.com/aryansfamilyofficial?igsh=czhiZWthMzU0ZDUz&utm_source=qr" target="_blank" rel="noopener noreferrer"><svg><use href="#icon-instagram"/></svg><span><strong>Instagram</strong><small>Follow along</small></span><svg class="quick-arrow"><use href="#icon-arrow"/></svg></a>
+        <a class="quick-link social-google" href="#google-review-assistant" onclick="openReviewAssistant(event)"><svg><use href="#icon-google-star"/></svg><span><strong>Google Reviews</strong><small>Start a review draft</small></span><svg class="quick-arrow"><use href="#icon-arrow"/></svg></a>
+        <a class="quick-link social-facebook" href="https://www.facebook.com/legendaryans/" target="_blank" rel="noopener noreferrer"><svg><use href="#icon-facebook"/></svg><span><strong>Facebook</strong><small>See our updates</small></span><svg class="quick-arrow"><use href="#icon-arrow"/></svg></a>
+      </div>
+    </section>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <span class="eyebrow">Z-Corner · Pune</span>
+          <h1>Aryan's <em>Family Restaurant &amp; Bar.</em></h1>
+          <p class="hero-copy"></p>
+          <p class="hero-address"><svg class="pin" width="18" height="18"><use href="#icon-pin"/></svg><span>Z-Corner, Manjari Village Road, Lonkar Wasti, Keshav Nagar, Mundhwa, Pune 411036</span></p>
+          <div class="hero-actions">
+            <a class="btn btn-primary social-whatsapp" href="https://wa.me/919325024374" target="_blank" rel="noopener noreferrer"><svg><use href="#icon-whatsapp"/></svg>Chat on WhatsApp</a>
+            <a class="btn btn-secondary" href="#menu">Explore the menu <svg><use href="#icon-arrow"/></svg></a>
+          </div>
+        </div>
+        <div class="hero-photo">
+          <img src="tandoor-platter.png" alt="Aryan's Tandoori Specials" fetchpriority="high" />
+          <div class="photo-caption"><span><small>Authentic Tandoor &amp; Kala Masala</small><strong>Made to be shared</strong></span><span class="photo-chip">Warm · Fresh · Local</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OUR SPECIALITY SECTION -->
+    <section class="section speciality-section" id="speciality">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <span class="section-kicker">Experience Aryan's</span>
+            <h2>Our Specialty</h2>
+          </div>
+          <p class="section-note">Discover what makes dining at Aryan's an unforgettable experience for families, foodies, and celebrations.</p>
+        </div>
+
+        <div class="speciality-grid">
+          <article class="speciality-card">
+            <div class="speciality-photo"><img src="seafood-konkan.png" alt="Konkan seafood platter with bombil, prawns and fish curry" loading="lazy" /></div>
+            <div class="speciality-body">
+              <span class="speciality-tag">Coastal Konkan</span>
+              <h3>Seafood</h3>
+              <p>Fresh coastal favourites including crispy Bombil Kurkure, tandoori Bangda, and masala prawns, prepared with aromatic Konkan spices and served with lime and chutney.</p>
+            </div>
+          </article>
+
+          <article class="speciality-card">
+            <div class="speciality-photo"><img src="dum-biryani.jpeg" alt="Murg Kheema Biryani with aromatic basmati rice" loading="lazy" /></div>
+            <div class="speciality-body">
+              <span class="speciality-tag">Dum Pukht Special</span>
+              <h3>Murg Kheema Biryani</h3>
+              <p>Aromatic basmati rice layered with spiced chicken kheema, caramelized onions, and warming biryani masala, then slow-cooked dum style and served with cooling raita.</p>
+            </div>
+          </article>
+
+          <article class="speciality-card">
+            <div class="speciality-photo"><img src="maharashtrian-thali.png" alt="Maharashtrian Thali" loading="lazy" /></div>
+            <div class="speciality-body">
+              <span class="speciality-tag">Local Heritage</span>
+              <h3>Maharashtrian Dish / Thali</h3>
+              <p>Heirloom recipes featuring our legendary Kala Masala gravies, hearty rassa, and piping hot Jowar Bhakri made with authentic Pune spices.</p>
+            </div>
+          </article>
+
+          <article class="speciality-card">
+            <div class="speciality-photo"><img src="tandoor-platter.png" alt="Tandoor and Grilled items" loading="lazy" /></div>
+            <div class="speciality-body">
+              <span class="speciality-tag">Charcoal Grilled</span>
+              <h3>Tandoor &amp; Grills</h3>
+              <p>Succulent kebabs, chicken lollipops, and whole fish char-grilled over flaming earthen tandoors, delivering rich smoky perfection.</p>
+            </div>
+          </article>
+
+          <article class="speciality-card">
+            <div class="speciality-photo"><img src="family-seating.jpeg" alt="Family Seating Tree Jungle View" loading="lazy" /></div>
+            <div class="speciality-body">
+              <span class="speciality-tag">Cozy Ambiance</span>
+              <h3>Special Family Seating (Tree / Jungle View)</h3>
+              <p>Dine amidst lush greenery with peaceful tree canopy views, comfortable breeze, and spacious tables tailored for family privacy.</p>
+            </div>
+          </article>
+
+                    <article class="speciality-card banquet-card">
+            <div class="speciality-photo"><img src="banquet-hall-konkan.png" alt="Warm, jungle-inspired banquet hall with decorated stage, couple sofa and dining tables" loading="lazy" /></div>
+            <div class="speciality-body banquet-body">
+              <span class="speciality-tag">Celebrations</span>
+              <h3>Banquet Hall</h3>
+              <p class="banquet-offer">Banquet hall is free</p>
+              <p class="banquet-intro">Celebrate weddings, birthdays, and family occasions in a decorated event space with dining and event support.</p>
+              <ul class="banquet-features">
+                <li>Basic decoration</li><li>Couple sofa</li><li>Maharaja chair</li><li>VIP chairs for guests</li><li>Sound system</li>
+                <li>Event manager</li><li>Staff</li><li>Buffet</li><li>Event hall</li><li>Dining hall</li>
+                <li>Dining tables and chairs</li><li>Lift</li><li>Changing room</li><li>Separate parking</li><li>Karaoke music</li>
+              </ul>
+            </div>
+          </article>          
+        </div>
+      </div>
+    </section>
+
+    <!-- DRINKS SECTION (JAMUN SHOT & JÄGER BOMB) -->
+    <section class="section drink-section" id="drinks">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <span class="section-kicker">Signature Shots &amp; Bar</span>
+            <h2>Drinks for the evening</h2>
+          </div>
+          <p class="section-note">Bold spirits, energetic mixes, and our famous limited-time party offers.</p>
+        </div>
+        <div class="drink-grid">
+          <article class="drink-card">
+            <div class="drink-photo"><img src="jamun-shot.png" alt="Jamun Shot" loading="lazy" /></div>
+            <div class="drink-copy">
+              <span class="drink-tag">House Signature Shot</span>
+              <h3>Jamun Shot</h3>
+              <p>Crafted with real wild black plum (Jamun) pulp, black salt, and a refreshing chilled spirit punch.</p>
+              <div class="offer-badge">🔥 1 Jamun Shot ₹350 — Buy 1 Get 1 Free!</div>
+            </div>
+          </article>
+
+          <article class="drink-card">
+            <div class="drink-photo"><img src="jagerbomb.png" alt="Jäger Bomb Shots" loading="lazy" /></div>
+            <div class="drink-copy">
+              <span class="drink-tag">Energy &amp; Herbal Shot</span>
+              <h3>Jäger Bomb Shots</h3>
+              <p>The timeless party spectacle—a shot of authentic Jägermeister dropped into chilled Red Bull for an energetic kick.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FROM THE KITCHEN (NEW STARTERS & MAIN COURSE) -->
+    <section class="section" id="menu">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <span class="section-kicker">A taste of Aryan's</span>
+            <h2>From the kitchen</h2>
+          </div>
+          <p class="section-note">Handcrafted starters and aromatic main courses prepared fresh to order in our kitchen.</p>
+        </div>
+
+        <h3 class="menu-category-title">Starters</h3>
+        <div class="dish-grid">
+          <article class="dish-card">
+            <div class="dish-photo"><img src="bombil-kurkure.jpeg" alt="Bombil Kurkure" loading="lazy" /><span class="dish-badge">Crispy</span></div>
+            <div class="dish-body"><span class="dish-number">01 · SEAFOOD STARTER</span><h3>Bombil Kurkure</h3><p>Crispy fresh Bombay Duck fillets coated with coarse semolina (rawa) and spices, fried to a golden crunch.</p></div>
+          </article>
+
+          <article class="dish-card">
+            <div class="dish-photo"><img src="soya-chaap.png" alt="Soya Chaap" loading="lazy" /><span class="dish-badge">Veg Special</span></div>
+            <div class="dish-body"><span class="dish-number">02 · VEGETARIAN GRILL</span><h3>Soya Chaap</h3><p>Tender protein-packed soya chaap skewers marinated in yogurt, tandoori masala, and grilled over charcoal.</p></div>
+          </article>
+
+          <article class="dish-card">
+            <div class="dish-photo"><img src="tandoor-platter.png" alt="Chicken Matka Tandoori" loading="lazy" /><span class="dish-badge">Chef's Signature</span></div>
+            <div class="dish-body"><span class="dish-number">03 · CLAY POT SPECIAL</span><h3>Chicken Matka Tandoori</h3><p>Juicy chicken marinated in aromatic herbs and roasted inside an authentic earthen clay pot for deep rustic flavor.</p></div>
+          </article>
+
+          <article class="dish-card">
+            <div class="dish-photo"><img src="chicken-tandoori-lollipop.png" alt="Chicken Tandoori Lollipop" loading="lazy" /><span class="dish-badge">Bestseller</span></div>
+            <div class="dish-body"><span class="dish-number">04 · TANDOORI TWIST</span><h3>Chicken Tandoori Lollipop</h3><p>Classic crispy chicken drumettes brushed with spicy tandoori marinade and charred over red-hot coals.</p></div>
+          </article>
+
+          <article class="dish-card">
+            <div class="dish-photo"><img src="bangda-tandoori.png" alt="Bangda Tandoori" loading="lazy" /><span class="dish-badge">Fresh Catch</span></div>
+            <div class="dish-body"><span class="dish-number">05 · COASTAL GRILL</span><h3>Bangda Tandoori (Mackerel Tandoori)</h3><p>Whole fresh Mackerel infused with spicy ginger-garlic coastal rub and roasted with charred edges.</p></div>
+          </article>
+
+          <article class="dish-card">
+            <div class="dish-photo"><img src="prawns-koliwada.png" alt="Prawns Koliwada Tandoori" loading="lazy" /><span class="dish-badge">Crisp &amp; Juicy</span></div>
+            <div class="dish-body"><span class="dish-number">06 · PRAWNS SPECIAL</span><h3>Prawns Koliwada / Tandoori Masala</h3><p>Jumbo prawns dipped in crisp spicy Koliwada batter or skewered in smoky tandoori coastal seasonings.</p></div>
+          </article>
+        </div>
+
+        <h3 class="menu-category-title">Hearty Main Course</h3>
+        <div class="dish-grid">
+          
+
+          <article class="dish-card">
+            <div class="dish-photo"><img src="veg-maharaja.jpg" alt="Paneer Jafrani Masala" loading="lazy" /><span class="dish-badge">Royal Gravy</span></div>
+            <div class="dish-body"><span class="dish-number">08 · VEGETARIAN ROYAL</span><h3>Paneer Jafrani / Veg Jafrani Masala</h3><p>Velvety saffron-infused rich cashew gravy simmered with soft paneer cubes or mixed garden vegetables.</p></div>
+          </article>
+
+          <article class="dish-card">
+            <div class="dish-photo"><img src="chicken-kala-masala.png" alt="Chicken Kala Masala" loading="lazy" /><span class="dish-badge">House Special</span></div>
+            <div class="dish-body"><span class="dish-number">09 · MAHARASHTRIAN ICON</span><h3>Chicken Kala Masala</h3><p>Slow-cooked country chicken prepared with traditional roasted black spices and onions. Irresistible with Bhakri!</p></div>
+          </article>
+
+          <article class="dish-card">
+            <div class="dish-photo"><img src="jeera-chicken.png" alt="Jeera Chicken" loading="lazy" /><span class="dish-badge">Aromatic</span></div>
+            <div class="dish-body"><span class="dish-number">10 · CUMIN DELIGHT</span><h3>Jeera Chicken</h3><p>Tender chicken pieces tossed with roasted cumin seeds, fresh cracked pepper, and rich Indian spices.</p></div>
+          </article>
+        </div>
+
+        <div class="menu-card-grid" aria-label="Restaurant menu cards">
+          <article class="menu-card">
+            <div class="menu-card-head"><h3>AC Menu</h3><p>View the complete menu below.</p></div>
+            <iframe class="menu-card-view" src="aryans-ac-menu.pdf#toolbar=0&amp;navpanes=0&amp;scrollbar=1&amp;view=FitH" title="Aryan's AC restaurant menu" loading="lazy"></iframe>
+          </article>
+          <article class="menu-card">
+            <div class="menu-card-head"><h3>Non-AC Menu</h3><p>View the complete menu below.</p></div>
+            <iframe class="menu-card-view" src="aryans-non-ac-menu.pdf#toolbar=0&amp;navpanes=0&amp;scrollbar=1&amp;view=FitH" title="Aryan's non-AC restaurant menu" loading="lazy"></iframe>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  
+<footer id="visit">
+  <div class="wrap footer-row">
+    <div>
+      <span class="footer-brand">Aryan's Family Restaurant &amp; Bar</span>
+      <div class="footer-address">
+        Z-Corner, Manjari Village Road, Lonkar Wasti, Keshav Nagar, Mundhwa, Pune 411036
+      </div>
+      <div class="footer-address">
+        Menu descriptions and photos are illustrative; please confirm current availability with the restaurant.
+      </div>
+    </div>
+
+    
+<div class="footer-socials" aria-label="Follow and review">
+
+  <a class="social-icon social-whatsapp"
+     href="https://wa.me/919325024374"
+     target="_blank"
+     rel="noopener noreferrer"
+     aria-label="WhatsApp">
+    <svg><use href="#icon-whatsapp"/></svg>
+  </a>
+
+  <a class="social-icon social-instagram"
+     href="https://www.instagram.com/aryansfamilyofficial?igsh=czhiZWthMzU0ZDUz&utm_source=qr"
+     target="_blank"
+     rel="noopener noreferrer"
+     aria-label="Instagram">
+    <svg><use href="#icon-instagram"/></svg>
+  </a>
+
+  <a class="social-icon social-facebook"
+     href="https://www.facebook.com/legendaryans/"
+     target="_blank"
+     rel="noopener noreferrer"
+     aria-label="Facebook">
+    <svg><use href="#icon-facebook"/></svg>
+  </a>
+
+ <a class="social-icon social-google"
+    href="#google-review-assistant"
+    onclick="openReviewAssistant(event)"
+    aria-label="Write a Google review">
+    <svg><use href="#icon-google-star"/></svg>
+  </a>
+
+</div>
+
+      <!-- Keep your existing social media links here -->
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2026 Aryan's Family Restaurant &amp; Bar. All rights reserved.</p>
+    <p>Manjari Village Road, Lonkar Wasti, Keshav Nagar, Mundhwa, Pune 411036</p>
+  </div>
+</footer>
+
+  
+
+  <div class="mobile-quick" aria-label="Quick actions">
+    <a class="btn btn-primary social-whatsapp" href="https://wa.me/919325024374" target="_blank" rel="noopener noreferrer"><svg><use href="#icon-whatsapp"/></svg>WhatsApp</a>
+    <a class="btn btn-secondary" href="#google-review-assistant" onclick="openReviewAssistant(event)"><svg><use href="#icon-google-star"/></svg>Write a Google review</a>
+  </div>
+
+  <!-- READY REVIEW DRAFT -->
+  <div class="review-overlay" id="google-review-assistant" aria-hidden="true">
+    <section class="review-dialog" role="dialog" aria-modal="true" aria-labelledby="review-title" aria-describedby="review-intro">
+      <button class="review-close" type="button" onclick="closeReviewAssistant()" aria-label="Close review helper">&times;</button>
+      <span class="section-kicker">Google review</span>
+      <h2 id="review-title">Ready review draft</h2>
+      <p class="review-intro" id="review-intro">Choose Food, Family visit, Service, or Drinks to shuffle through ready drafts. Copy a draft to continue on Google.</p>
+      
+      <div class="review-moods" role="group" aria-label="Choose a review topic">
+        <button class="review-mood is-active" type="button" data-mood="food" onclick="setReviewMood('food', this)">Food</button>
+        <button class="review-mood" type="button" data-mood="family" onclick="setReviewMood('family', this)">Family visit</button>
+        <button class="review-mood" type="button" data-mood="service" onclick="setReviewMood('service', this)">Service</button>
+        <button class="review-mood" type="button" data-mood="drinks" onclick="setReviewMood('drinks', this)">Drinks</button>
+      </div>
+
+      <div class="review-item-picker" id="review-item-picker">
+        <label class="review-menu-label" for="review-menu-item">Choose a dish or drink</label>
+        <select class="review-menu-select" id="review-menu-item" onchange="shuffleReviewIdea()"><option value="">Choose an item</option><optgroup label="Food"><option>Bombil Kurkure (Crispy Bombay Duck)</option><option>Soya Chaap</option><option>Chicken Matka Tandoori</option><option>Chicken Tandoori Lollipop</option><option>Bangda Tandoori (Mackerel Tandoori)</option><option>Prawns Kiliwado / Tandoori Masala</option><option>Paneer Jafrani / Veg Jafrani Masala</option><option>Chicken Kala Masala</option><option>Jeera Chicken</option></optgroup><optgroup label="Drinks"><option>Jamun Shot</option><option>Jäger Bomb Shots</option></optgroup></select>
+      </div>
+
+      <div class="review-idea" id="review-idea" aria-live="polite"></div>
+      <p class="review-status" id="review-status" aria-live="polite">Your review draft is ready.</p>
+      
+      <div class="review-actions">
+        <button class="btn btn-secondary" type="button" onclick="shuffleReviewIdea()">New review</button>
+        <button class="btn btn-secondary" type="button" onclick="copyReviewOnly()">Copy review</button>
+        <button class="btn btn-primary" type="button" onclick="copyReviewIdea()"><svg><use href="#icon-google-star"/></svg>Copy review &amp; open Google</button>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    let activeReviewMood = 'food';
+    let activeReviewLanguage = 'en';
+    let lastReviewIdeaIndex = {};
+
+    function openReviewAssistant(event) {
+      if (event) event.preventDefault();
+      const modal = document.getElementById('google-review-assistant');
+      modal.classList.add('is-open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      document.getElementById('review-menu-item').value = '';
+      shuffleReviewIdea();
+    }
+    function closeReviewAssistant() {
+      const modal = document.getElementById('google-review-assistant');
+      modal.classList.remove('is-open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+    function setReviewMood(mood, button) {
+      activeReviewMood = mood;
+      document.querySelectorAll('.review-mood').forEach(chip => chip.classList.remove('is-active'));
+      button.classList.add('is-active');
+      document.getElementById('review-menu-item').value = '';
+      document.getElementById('review-item-picker').style.display = (mood === 'food' || mood === 'drinks') ? 'block' : 'none';
+      shuffleReviewIdea();
+    }
+
+    const foodReviews = ["The Chicken Matka Tandoori was cooked to sheer perfection. Tender, succulent chicken roasted with earthen spices. Five stars for food and quick table service!","Tried the Chicken Tandoori Lollipop and loved the crisp outer char. Juicy on the inside and paired with fresh mint dip.","If you enjoy fresh seafood, order their Bangda Tandoori. Perfectly grilled, fresh catch, and seasoned with authentic coastal herbs.","Bombil Kurkure is an absolute must-try at Aryan’s. Extra crispy semolina coating, light, and completely non-greasy.","The Prawns Koliwada and Prawns Tandoori Masala were delicious. Plump, juicy prawns packed with robust spices.","The Chicken Matka Tandoori arrived piping hot in a clay pot. The smoky charcoal aroma filled the whole table.","Had the Chicken Tandoori Lollipop with drinks. The meat was tender, flavorful to the bone, and served with tangy onion salad.","Their Bangda Tandoori was thoroughly cleaned and roasted without drying out. Exceptional coastal non-veg preparation!","Prawns Koliwada had that authentic crunchy red batter and juicy bite. Best seafood appetiser on Manjari Village Road!","Authentic tandoori items prepared over live coals. Both the Chicken Tikka and Matka Tandoori were juicy and flavorful.","The crunch on the Bombil Kurkure stayed crisp till the last bite. Fresh Bombay duck with zero oily aftertaste.","Chicken Tandoori Lollipops were tender, meaty, and spiced just right for the family. Prompt service by the staff.","Bangda Tandoori with lemon wedges and green chutney hit the spot. Freshness of the fish was evident in every bite.","Loved the Prawns Tandoori Masala. Generous portion of prawns coated in thick, aromatic tandoor marinade.","Delicious Chicken Matka Tandoori with deep earthen flavors. Exceptional presentation and authentic taste.","Crispy Bombil Kurkure is the ultimate starter here. Clean tables, polite attendants, and fast kitchen turnaround.","The Chicken Tandoori Lollipop had authentic tandoor smoke. Perfect finger food to kick off dinner.","Tried Bangda Tandoori and it exceeded expectations. Crisp skin and flaky, spicy meat inside.","Prawns Koliwada was fried to golden perfection. Paired with spicy mint chutney, it was thoroughly enjoyable.","Chicken Matka Tandoori is their signature star dish. Succulent meat infused with traditional herbs.","Bombil Kurkure was crunchy, light, and seasoned with semolina. Best seafood starter in Mundhwa!","Chicken Tandoori Lollipop disappeared from our table within minutes. Smoky, juicy, and well-marinated.","Bangda Tandoori was roasted evenly with spicy coastal masala. Top marks for hygiene and freshness.","Prawns Tandoori Masala had a mouth-watering char and balanced spices. Unbeatable seafood quality!","Succulent Chicken Matka Tandoori with generous chicken pieces. Served sizzling hot in an earthen pot.","Tried Bombil Kurkure and Prawns Koliwada together. Both starters were crispy, flavorful, and freshly made.","Chicken Tandoori Lollipops had that distinct earthen clay oven flavour. Tender and packed with spice.","Juicy Bangda Tandoori paired with chilled drinks made our evening. Courteous staff and pocket-friendly pricing.","Large prawns seasoned with aromatic red spices in their Prawns Koliwada. Crisp on the outside and juicy within.","Chicken Matka Tandoori is a masterclass in clay pot cooking. Deep, rich flavours that linger pleasantly.","Bombil Kurkure had zero fishy smell and maximum crunch. Even friends who rarely eat fish loved it.","Chicken Tandoori Lollipop was well-marinated and tender. Quick table delivery even during weekend rush hours.","Fresh Bangda Tandoori served hot with onion rings. Flaky, spicy, and satisfying in every bite.","Prawns Tandoori Masala was rich, smoky, and succulent. High-quality seafood cooked with care.","The aroma of Chicken Matka Tandoori as it reaches your table is irresistible. Meat falls right off the bone.","Ordered multiple plates of Bombil Kurkure. Light, crunchy, and seasoned with local spices.","Loved the Chicken Tandoori Lollipop starter. Smoky flavor goes all the way through the meat.","Fresh fish marinated in spicy coastal masala and grilled to perfection. Bangda Tandoori is a winner!","Crispy Prawns Koliwada paired with cool mint chutney. Fresh ingredients and generous portion size.","Chicken Matka Tandoori is a must-try for non-veg lovers in Pune. Traditional preparation and remarkable taste.","Sizzling hot Chicken Tandoori Lollipop with great balance of spices. Great starter options on their menu.","Fresh Bangda Tandoori with authentic coastal touch. Perfect starter to enjoy with friends.","Crunchy Bombil Kurkure prepared fresh on order. Delicate fish inside with a crisp golden exterior.","Prawns Koliwada had bold spices and tender prawns. Very quick service from the kitchen.","Chicken Matka Tandoori was cooked to tenderness with aromatic clay oven smoke. Highly recommended!","The seasoning on the Chicken Tandoori Lollipop was spot-on. Not overly spicy, just full of rich flavor.","Bangda Tandoori had thick, flavorful masala and tender fish. Deserves a 5-star rating!","Bombil Kurkure was crisp, well-salted, and served piping hot. Excellent seafood preparation.","Juicy Prawns Tandoori Masala with charred edges. Great presentation and fresh ingredients.","Chicken Matka Tandoori is an outstanding starter. The earthenware pot locks in all the moisture and spices.","The Mutton Handi (Kalamasala) with hot Bhakri was pure perfection. Deep, slow-cooked roasted spices and melt-in-the-mouth mutton pieces.","Ordered the authentic Mutton Thali with rassa, bhakri, and indrayani rice. Every item was packed with authentic Maharashtrian flavor.","The Murg Thali served with spicy chicken curry, egg curry, and hot bhakri is an incredible value meal. Truly authentic taste!","Jeera Murg Masala paired with butter garlic naan was fantastic. Fragrant cumin tempering and rich tender chicken pieces.","If you want authentic regional flavors in Pune, order their Mutton Handi (Kalamasala). Rich, thick gravy packed with roasted spices.","The Mutton Khima Masala (Kalamasala) with butter roti was super rich and hearty. Well-spiced and served piping hot.","Murg Handi with hot Jowar Bhakri gave us the true warmth of countryside cooking. Generous portions and quick table service.","Ordered the Mutton Thali for Sunday lunch. The mutton rassa had great depth of flavor and the indrayani rice was fragrant and soft.","Jeera Murg Masala had the perfect balance of roasted cumin, fresh pepper, and savory gravy. Rich without being greasy.","Mutton Handi (Kalamasala) is cooked to tenderness. The meat easily separates from the bone and the gravy is richly layered.","Murg Malvani Handi with steamed rice hit all the right notes. Balanced coconut and coastal spices that taste homemade.","The Murg Thali is a complete feast. Five pieces of tender chicken curry, egg curry, bhakri, and sweet dish. Exceptional value!","Mutton Khima Masala (Kalamasala) was spiced with authentic roasted spices. Paired wonderfully with butter pav and roti.","Mutton Handi (Kalamasala) had that authentic rustic aroma and rich dark color. Heavenly when soaked in hot bhakri.","Jeera Murg Masala was succulent and aromatic. A great change from standard restaurant gravies.","Visited for dinner and had the Mutton Thali. Everything from the jeera sarbat starter to the mutton curry was top tier!","The gravy of the Murg Handi was rich, aromatic, and had real homestyle warmth. Will be returning with family.","Mutton Handi (Kalamasala) sets the standard for local mutton dishes in Keshav Nagar. Thick, flavorful, and satisfying.","Murg Thali is very filling and freshly cooked. The chicken pieces were tender and the rassa was flavorful. Five stars!","Jeera Murg Masala paired with tandoori paratha was delicious. Generous portion sizes and prompt staff attention.","Mutton Khima Masala (Kalamasala) had an authentic slow-cooked flavor. Great consistency and seasoned to perfection.","Loved the Mutton Handi (Kalamasala) served in a traditional handi. The spices were balanced and the meat was soft.","Authentic Maharashtrian non-veg gravies at very fair prices. Murg Handi with bhakri is our new favorite comfort food.","The Mutton Thali served here is one of the best in the Mundhwa area. Hearty mutton curry and delicious tambda rassa.","Jeera Murg Masala had an appetizing aroma and great savory depth. Served piping hot to our table.","Mutton Handi (Kalamasala) with hot jowar bhakri was mouth-watering. Great texture, rich aroma, and quick service.","Murg Thali was a satisfying meal. Five pieces of fresh chicken, piping hot rotis, and cooling jeera sarbat to finish.","Mutton Khima Masala (Kalamasala) was savory, spicy, and cooked with fresh onions and coriander. Highly recommended!","Tender mutton cuts simmered in a dark roasted spice gravy in their Mutton Handi (Kalamasala). Pure culinary delight!","Jeera Murg Masala was tender and fragrant with roasted cumin. Great accompaniment to rice and rotis.","The Mutton Thali gave us an authentic taste of home cooking. High food quality and spotless table cleanliness.","Murg Handi gravy was thick, fragrant, and packed with flavor. Perfect dish for weekend family dinners.","Mutton Handi (Kalamasala) arrived boiling hot with rich aroma. Tender cuts that soaked in all the spices.","Ordered the Murg Thali on a friend's recommendation. Plentiful food, piping hot bhakri, and rich chicken curry.","Mutton Khima Masala (Kalamasala) was packed with flavor without being oily. Great dish to enjoy with butter naan.","Authentic local cooking at its finest. Mutton Handi (Kalamasala) with bhakri is unbeatable!","Jeera Murg Masala had a tender texture and earthy spice blend. Attentive service by the staff throughout our meal.","The mutton in their Mutton Thali was tender and cooked with authentic regional herbs. Very satisfying dining experience.","Murg Handi was rich and comforting. Ideal main course option for families visiting Aryan's.","Mutton Handi (Kalamasala) had deep, slow-cooked flavors that taste phenomenal. Worth every rupee!","Murg Thali with indrayani rice and egg curry is comfort food done right. Excellent culinary execution.","Mutton Khima Masala (Kalamasala) was seasoned generously and served with fresh lemon and onions. Loved it!","Jeera Murg Masala had great flavor and generous meat portions. Very quick kitchen turnaround.","Mutton Handi (Kalamasala) paired with cold drinks and hot bhakri makes a fantastic feast.","Loved the Murg Thali. Freshly prepared, rich taste, and great value for an authentic Maharashtrian meal.","Mutton Handi (Kalamasala) had that authentic roasted spice aroma. The meat was tender and juicy throughout.","Murg Handi with butter roti was super rich and flavorful. Delicious food and polite restaurant staff.","Mutton Khima Masala (Kalamasala) had great texture and rich aroma. A standout dish on their non-veg menu.","The Mutton Thali was freshly prepared with tender meat and delicious rassa. Five full stars!","Uncompromising quality and traditional recipes. Mutton Handi (Kalamasala) and Murg Handi are both exceptional!","Tried the Soya Chaap tandoori starter and was thoroughly impressed. Tender, smoky, and richly spiced—a great vegetarian option!","Paneer Jafrani Masala was rich, creamy, and carried a subtle saffron aroma. Soft cottage cheese in an exquisite golden gravy.","Veg Jafrani Masala with butter garlic naan is a royal vegetarian meal. Mildly spiced, luxurious cashew gravy with fresh garden veggies.","Their Veg Manchurian gravy was piping hot, savory, and tossed with fresh spring onions. Authentic Indo-Chinese flavors!","Soya Chaap had a fantastic charred flavor from the tandoor. Juicy texture and served with a zesty mint sauce.","Paneer Jafrani Masala was melt-in-the-mouth soft and rich. Saffron and cashew notes elevated the dish completely.","Ordered Chinese Manchurian along with fried rice for lunch. Crisp vegetable dumplings coated in a glossy, spicy sauce.","Vegetarian food at Aryan's is just as impressive as their non-veg menu. Soya Chaap and Paneer Jafrani were both top tier.","Soya Chaap was marinated generously in hung curd and tandoori spices. Perfectly roasted over charcoal without getting chewy.","Paneer Jafrani Masala had a royal aroma that impressed our entire table. Rich gravy that paired delightfully with hot rotis.","The Veg Manchurian starter had an addictive crunch and tangy chili-garlic kick. Excellent starter to share with friends!","Veg Jafrani Masala was comforting, luxurious, and well-balanced. Not overly sweet, just pure creamy indulgence.","Soya Chaap here is the best vegetarian appetizer in Mundhwa. Smoky, succulent, and full of flavor.","Fresh paneer cubes simmered in creamy saffron sauce—the Paneer Jafrani is a must-try. Spotless restaurant and quick service!","Chicken Manchurian had crispy chicken bites coated in authentic Chinese sauce. Great fusion of sweet, sour, and spicy notes.","Great vegetarian options on their menu. Soya Chaap and Veg Jafrani Masala made our family lunch thoroughly enjoyable.","Soya Chaap had a tender texture and absorbed all the smoky marinade. Served hot with fresh onions and green chutney.","Paneer Jafrani Masala was creamy, velvety, and rich in dry fruit notes. Outstanding vegetarian culinary preparation!","Loved the wok-tossed Manchurian. Fresh crunchy bell peppers, onions, and flavorful soy garlic sauce. Five stars!","Veg Jafrani Masala with steamed basmati rice was a comforting combination. Gentle spices that suit all age groups.","The tandoori marinade on the Soya Chaap was exceptional. Charred edges and tender interior. Highly recommended!","Paneer Jafrani Masala had fresh cottage cheese that soaked in all the rich gravy. Wonderful presentation and quick service.","Crispy Manchurian balls with generous sauce portions. Great Indo-Chinese preparation that kids will love.","Soya Chaap is a great high-protein vegetarian choice here. Smoky, aromatic, and cooked to perfection.","Veg Jafrani Masala had a lovely golden color and exquisite aroma. Very clean dining hall and polite staff.","Paneer Jafrani was rich and royal in every spoon. Perfectly balanced spices without being too heavy. Five stars!","Tried both Soya Chaap and Manchurian starters. Both arrived hot and had distinct, bold flavors. Very satisfied!","The softness of the paneer in Paneer Jafrani Masala proves their ingredients are top quality. Highly recommended vegetarian dish!","Soya Chaap had that authentic highway dhaba tandoor smoke. Delicious and pocket-friendly!","Veg Manchurian had a deep savory flavor and crisp texture. Wonderful appetizer to kick off an evening dinner.","The saffron touch in Paneer Jafrani Masala elevates ordinary paneer curries to fine dining standards. Excellent!","Soya Chaap was juicy and well-roasted. Even non-vegetarians on our table asked for a second plate!","Veg Jafrani Masala was smooth, fragrant, and packed with tender vegetables. Perfect for a peaceful family meal.","Crispy Manchurian tossed in spicy Schezwan-style gravy was thoroughly enjoyable. Great food quality throughout!","Paneer Jafrani Masala and Soya Chaap make the ultimate vegetarian feast at Aryan's. Consistently delicious food!","Soya Chaap was packed with smoky spices and arrived piping hot. Great vegetarian addition to the menu.","Paneer Jafrani Masala had a silky texture and delicate saffron fragrance. Pairs wonderfully with butter naan.","The Manchurian was fresh and flavorful with crisp veggies. Quick table service and clean dining ambiance.","Soya Chaap skewers were well-seasoned with herbs and curd. A flavorful vegetarian starter everyone enjoyed.","Delicious Paneer Jafrani Masala with soft paneer cubes. Five stars for vegetarian taste and quality!"];
+    const drinkReviews = ["The Jamun Shot here is phenomenal! Real fruit pulp, black salt, and a chilled punch that refreshes you instantly. The Buy 1 Get 1 Free offer at ₹350 makes it unbeatable value!","Ordered Jäger Bomb Shots with friends during our weekend night out. Energetic presentation, ice-cold Red Bull, and great lounge music.","Don’t leave Aryan’s without trying their signature Jamun Shot. Sweet, tangy, and served ice-cold. The BOGO offer is a fantastic bonus!","Jäger Bomb Shots were served with proper glassware and great energy. The perfect drink to kick off a celebration with friends.","The Jamun Shot tastes like pure childhood memories with a boozy twist. Tangy wild plum flavor that wakes up your taste buds!","Chilled draught beers and Jäger Bomb Shots made our Saturday night party unforgettable. Great lounge seating and prompt bar service.","At ₹350 with Buy One Get One Free, the Jamun Shot is the best bar deal in Pune. Thick pulp, refreshing taste, and great presentation.","The bartender prepared our Jäger Bomb Shots with flair. Lively bar atmosphere and upbeat music in Keshav Nagar!","Jamun Shot has real kala jamun fruit texture and a salted rim that tastes heavenly. Five stars for creativity and flavor!","Jäger Bomb Shots dropped right into cold energy drinks—pure party vibes. Fast bar service and clean counter arrangements.","We ordered two rounds of the Jamun Shot offer. Absolutely refreshing after spicy tandoori starters. A must-try drink!","Great collection of premium spirits and energy shots. Jäger Bomb Shots were served ice-cold and on point.","The BOGO deal on the Jamun Shot at ₹350 is incredible value. Packed with real fruit pulp and perfect balance.","Jäger Bomb Shots had that perfect herbal rush. Cozy lighting and comfortable lounge sofas made our evening very relaxing.","Jamun Shot has the perfect tart and sweet kick. Best shot I've tasted in any Pune bar lounge!","Came for drinks with colleagues and had a blast with Jäger Bomb Shots. Attentive bar staff and very reasonable pricing.","The Jamun Shot is thick, fruity, and delightfully chilled. Great starter drink before dinner. Five stars!","Jäger Bomb Shots were delivered quickly without any spills. Energetic vibe and great crowd on weekend nights.","Real Jamun pulp in a chilled shot glass—the Jamun Shot is genius! The BOGO offer made it twice as sweet.","Jäger Bomb Shots paired with hot chicken lollipops made our Friday night feast complete. Highly recommended bar lounge!","Loved the tangy black salt rim on the Jamun Shot. Truly refreshing and unique to Aryan's.","Prompt service at the bar counter. Jäger Bomb Shots were ice cold and delivered with a smile.","The ₹350 Buy 1 Get 1 Free Jamun Shot offer is totally worth it. Delicious, natural fruit flavor with a punch.","Energetic lounge music and chilled Jäger Bomb Shots. Great place in Mundhwa to unwind after work.","The Jamun Shot was the star of our evening drinks. Real fruit pulp and great chill factor.","Jäger Bomb Shots served in proper drop glasses. Fun, vibrant, and pocket-friendly bar menu.","Take advantage of the BOGO Jamun Shot deal—you won’t regret it! Tangy, sweet, and perfectly balanced.","Had an awesome evening with friends over Jäger Bomb Shots and spicy starters. Great hospitality throughout!","Jamun Shot is unlike anything you get at standard bars. Pure wild berry flavor with a chilled kick. Five stars!","Great bar setup, friendly bartenders, and ice-cold Jäger Bomb Shots. Easily our favorite hangout spot in Keshav Nagar.","The Jamun Shot is tangy, sweet, and so refreshing. The BOGO offer makes it an irresistible deal.","Jäger Bomb Shots brought high energy to our table. Fast service and vibrant lounge music.","Real fruit puree in every Jamun Shot. Served cold with a spiced rim that elevates the taste.","Jäger Bomb Shots were poured neatly and served right away. Great nightlife and drink experience.","The ₹350 Buy 1 Get 1 Jamun Shot is the highlight of the drinks menu. Delicious, chilled, and pocket-friendly!"];
+    const familyReviews = ["The Amazon Forest Family Section is stunning! Dining under leafy green canopies with lifelike jungle details made our dinner feel like a holiday.","We loved the dedicated Amazon Family Section. It is completely non-smoking, has soothing soft music, and offers a quiet, relaxed atmosphere for kids and grandparents.","Aryan’s jungle forest theme is truly unique in Pune. The green tree canopies, rustic wood tables, and ambient hanging lights create a peaceful vibe.","Dining in the Amazon Family Section while enjoying hot Chicken Matka Tandoori was memorable. Air-conditioned comfort combined with raw nature aesthetics!","Beautiful family dining section with a jungle canopy feel. The natural decor and quiet atmosphere make the food taste even better.","If you're visiting with family, request a table in the Amazon Forest Section. Spacious, private, and very well maintained.","Loved the natural forestry ambiance. Surrounded by leafy trees and warm lanterns, it feels like an oasis away from city traffic.","The Amazon jungle theme gives a resort-like feeling right in Keshav Nagar. Great food accompanied by serene nature decor!","Our family thoroughly enjoyed the Amazon themed area. Clean, non-smoking, and perfect for relaxed family conversations over dinner.","The Amazon family room is air-conditioned, cool, and charming. Beautiful backdrop for taking family photos!","Such a calm and leafy family dining area. You forget you are in the city while dining among the jungle greenery. Highly recommended!","Plenty of space between tables in the Amazon family section. Very safe and comfortable for children and elderly family members.","The forestry theme adds so much charm to the dinner experience. Great combination of authentic food and green surroundings.","Dining amidst trees with warm lantern lighting created a magical evening for our family. Exceptional ambiance and polite staff service.","The Amazon family section was cool, tranquil, and comfortable. Comfortable wooden chairs and soft background music.","A rare dining spot in Mundhwa with an authentic Amazon forest concept. Relaxing music, AC comfort, and delicious food.","We sat in the family jungle section and loved every minute. The staff was attentive and the green atmosphere felt very refreshing.","Natural greenery, cool AC dining, and sizzling tandoori starters. A top family dining pick in Pune!","The tree-covered backdrop makes family dinners feel festive. Spotless tables and attentive service throughout.","Loved the peaceful vibe of the jungle-view family dining area. Ideal place for relaxed Sunday afternoon lunches.","Natural foliage and serene tree views create an inviting atmosphere. Food arrived hot and fresh. Loved it!","Great layout separating the family jungle section completely from the bar. Peaceful, respectful, and safe for all families.","The Amazon themed seating is beautifully illuminated with lantern lights. Cozy, private, and family-friendly.","Surrounded by leafy greenery with authentic Maharashtrian dishes on the table. A truly relaxing dining experience!","We celebrated my mother's birthday in the Amazon family section. Everyone loved the open garden ambiance and polite service.","The jungle-view section provides privacy and fresh air. Very relaxing dining environment away from city noise.","Beautiful tree canopies overhead and comfortable wooden seating. Our family spent two wonderful hours enjoying food here.","The Amazon decor makes Aryan's stand out from typical closed restaurants. Refreshing vibe and delicious menu!","Quiet, cool, and lush greenery all around. The family seating area is easily one of the best in Keshav Nagar.","Eating Chicken Matka Tandoori amidst tree-view greenery was a delight. Top ambiance, great hospitality, and five full stars!","The Amazon themed section is peaceful, clean, and 100% non-smoking. Perfect place to bring young kids.","Very cozy tree-canopy ambiance with soft instrumental background music. The family loved the jungle feel.","Dining under tree branches and warm fairy lanterns made our evening special. Exceptional hospitality and delicious food.","Beautiful green decor that looks great in family photos. Spacious tables and quick attention from the waiters.","The Amazon family hall is cool, quiet, and very relaxing. Great place for family get-togethers in Pune.","Loved the wooden furniture and tree trunk decor in the family room. Authentic forest feel with AC comfort!","A peaceful dining space where you can actually talk without loud restaurant noise. Excellent family ambiance.","Kids were fascinated by the Amazon jungle theme and lifelike birds. Great food and warm hospitality.","The green tree cover gives complete privacy to each family table. Delicious Maharashtrian food served hot.","The Amazon family room offers a refreshing dining atmosphere. Spotless tables and prompt service.","Wonderful forest vibe with soft music. A great dining space for family reunions and weekend lunches.","Peaceful and green surroundings in the Amazon section. The food arrived quickly and tasted fantastic.","The no-smoking family zone is a huge plus. Very clean and comfortable seating for elders and children.","Exceptional interior styling with lush green leaves and warm lamps. Made our Sunday lunch very pleasant.","The Amazon section makes dinner feel special. Great atmosphere, polite staff, and authentic food.","Loved the rustic wooden tables and green canopy ceiling. One of the most aesthetic family rooms in Pune!","Very relaxing jungle-inspired decor. The air-conditioning kept the room comfortable throughout.","Quiet, respectful, and family-oriented environment. We thoroughly enjoyed our dinner in the Amazon section.","The forest atmosphere pairs wonderfully with their hot tandoori starters. Five stars for ambiance and service!","Dining in the Amazon zone feels like dining in a nature resort. Clean, spacious, and very welcoming.","Perfect setting for family dinners. Soft music, comfortable seating, and no loud disturbances.","The green jungle theme is creative and executed with great taste. Delicious food and polite waiters.","Our entire family loved the quiet forest ambiance. Comfortable tables and authentic culinary dishes.","Fresh air, green tree canopies, and delicious food. Easily our favorite family dining section in Keshav Nagar.","Five stars for the Amazon Family Section! It combines comfort, privacy, and exceptional food quality.","Hosted my daughter’s birthday party in their Banquet Hall and the experience was flawless! The complimentary hall decoration saved us so much time and money.","Booked the Banquet Hall for an anniversary celebration and was blown away. The stage decoration with flower arches and warm pendant lights looked stunning!","Free Banquet Hall decoration with delicious catering! Our family get-together was a huge success thanks to the management at Aryan’s.","If you are planning a birthday or family event in Keshav Nagar, book Aryan’s Banquet Hall. Beautiful free decoration, AC comfort, and mouth-watering starters!","The complimentary Banquet Hall decoration was gorgeous with floral backdrops and golden chandeliers. Staff kept hot starters coming throughout our party.","Celebrated a milestone family event in their Banquet Hall. Spacious, clean, and the free decoration made the event feel like a luxury celebration!","Incredible banquet service! They took care of the stage, flower decor, and sofa seating for free. All our guests praised the food.","Hosted a surprise party in their Banquet Hall. The team decorated the stage free of charge and managed the buffet seamlessly. Five stars!","The Banquet Hall at Aryan’s is spacious, air-conditioned, and elegant. The free decoration offer is genuine and looks fantastic in event photos!","Perfect venue for small to medium family functions. Clean Banquet Hall, free festive decoration, and generous catering portions.","We saved a significant amount on event decorators because Aryan’s includes Banquet Hall decoration free of cost. Delicious food made the party complete!","Attended a friend’s birthday party in their Banquet Hall and was impressed. The floral decor, hanging cane lamps, and lighting were exquisite.","Great sound system, comfortable seating, and complimentary Banquet Hall decoration. Aryan’s Banquet Hall is the best celebration value in Mundhwa!","The management team went above and beyond for our anniversary party. Free stage floral decor and seating looked spectacular!","Seamless event execution in the Banquet Hall. Free decoration, piping hot food, and very courteous stewards. Highly recommended!","Hosted a family reunion in the Banquet Hall. The decor was ready before we arrived and the staff handled 50+ guests effortlessly.","You rarely find a Banquet Hall that provides complete floral decor without hidden costs. Aryan's delivered exactly what they promised.","The complimentary Banquet Hall decoration package looked rich and modern. Velvet chairs, flower backdrops, and great buffet service.","Best Banquet Hall venue in the Z-Corner area for private functions. Free decoration, delicious starters, and hassle-free parking.","Celebrated a retirement party in the Banquet Hall and had a wonderful time. Beautiful hall decoration provided free by the restaurant management!","From the welcome drinks to the buffet counter, everything in the Banquet Hall was well managed. The free decoration was a huge highlight!","Beautiful Banquet Hall with complimentary floral arches, warm lanterns, and plush seating. Food was served piping hot.","Booked the Banquet Hall for a family naming ceremony. The team decorated the entire stage free of cost with great elegance.","Stress-free event planning! Aryan’s took care of the Banquet Hall setup and free decoration while we enjoyed the celebration with our guests.","Outstanding Banquet Hall experience. Free decoration, delicious food, and very polite banquet staff.","Celebrated our team dinner in the private Banquet Hall. Great AC, crisp sound setup, and beautiful free floral decoration.","The free Banquet Hall decoration made our anniversary photos look stunning. Heartfelt thanks to the management and serving team!","Top-rated celebration venue in Keshav Nagar. Clean Banquet Hall, genuine free decoration service, and mouth-watering catering.","Our guests were thoroughly impressed by the Banquet Hall arrangements. The free decoration and prompt table refills made it a memorable night.","If you have an upcoming celebration, choose Aryan’s Banquet Hall. Transparent pricing, free professional decoration, and authentic delicious food!","The Banquet Hall stage was beautifully adorned with fresh flowers and backdrop lights. Excellent service and free decor!","Hosted a pre-wedding family dinner in their Banquet Hall. The royal chair and sofa decor looked picture-perfect.","Buffet spread in the Banquet Hall was kept warm and replenished promptly. The complimentary decoration was an amazing perk!","Very spacious Banquet Hall that easily accommodated our guests with plenty of walking room. Five stars for management!","The ceiling hanging lamps and floral stage setup gave the Banquet Hall a luxury hotel feel. Highly recommended!","Excellent acoustics and sound in the Banquet Hall. We danced and celebrated while the staff served hot starters.","Free decoration in the Banquet Hall is a huge money-saver for families. High-quality setup without any extra charges!","The banquet coordinators were helpful, polite, and attentive to every detail. The hall was pristine and ready on time.","Hosted a 50th birthday party in the Banquet Hall. The floral backdrop and comfortable velvet chairs impressed everyone.","Everything in the Banquet Hall was well-organized. Clean cutlery, warm buffet counters, and polite servers.","Beautiful Banquet Hall interior with natural green accents and chandeliers. Great venue for engagement dinners!","The complimentary stage decoration exceeded our expectations. Beautiful flower work and warm lighting.","Banquet Hall air-conditioning was very effective, keeping 60+ guests comfortable throughout the event.","Delicious starters and main courses served fresh in the Banquet Hall. The free decoration was a wonderful bonus!","Smooth booking and coordination for our family function in the Banquet Hall. Five stars for hospitality and value!","The Banquet Hall has plenty of space for a stage, dining tables, and buffet counter. Ideal event space in Mundhwa!","Elegant velvet seating and decorated tables in the Banquet Hall. All guests complimented the ambiance.","Stress-free birthday celebration thanks to their free Banquet Hall decoration package. Great food and service!","The Banquet Hall was spotless, beautifully lit, and ready before our guests arrived. Excellent hospitality!","Booked the Banquet Hall for a family dinner party. Prompt catering, delicious food, and zero decor fees!","The floral backdrop on the stage looked grand and elegant. Our family photos turned out fantastic!","Attentive banquet staff who made sure drinks and starters were served continuously.","Great lighting, clean banquet floor, and lovely flower arrangements. Best Banquet Hall in Keshav Nagar!","Free decoration with high aesthetic standards. Aryan’s Banquet Hall is unmatched for family celebrations.","Hosted an office celebration in the Banquet Hall. Everyone enjoyed the delicious catering and festive setup.","The buffet counter in the Banquet Hall was kept clean and well-stocked throughout our function.","Beautiful stage sofa and flower garland backdrop. Perfect Banquet Hall setup for intimate family functions.","Friendly management who accommodated all our food requests for the Banquet Hall menu. Five stars!","The combination of delicious food and free Banquet Hall decoration makes Aryan’s the top event choice.","All our guests were delighted with the Banquet Hall atmosphere and hospitality. A memorable evening!","Clean, well-ventilated, and air-conditioned Banquet Hall. The complimentary decoration was done with great care.","Celebrated my parents' anniversary in the Banquet Hall. The stage and table decor looked lavish!","Fast, polite service from the banquet staff during our entire function. Delicious hot starters!","The Banquet Hall decor was modern, floral, and elegant. Great value without extra decoration charges!","From table napkins to stage lighting, every detail in the Banquet Hall was handled professionally.","The free Banquet Hall decoration was ready on time and looked breathtaking. Thank you Aryan's team!","Spacious Banquet Hall with dedicated buffet and dining zones. Perfect for celebrating family milestones.","Excellent catering quality and beautiful complimentary stage decor. Highly recommended Banquet Hall venue!","Our guests loved the food and the grand Banquet Hall atmosphere. Everything ran smoothly from start to finish.","The ultimate Banquet Hall for family events in Pune! Free decoration, authentic delicious food, and 5-star hospitality!"];
+    const serviceReviews = ["Outstanding service and hospitality from the entire staff. The attendants were remarkably polite, attentive, and quick on their feet throughout our meal. Highly recommend visiting Aryan's for a hassle-free dining experience!","Our orders were prepared quickly and arrived piping hot without long delays, even during peak rush hours. The staff handled our table requests with genuine smiles and great professionalism.","Five stars for the warm welcome and courteous service! The team guided us to the best dishes on the menu and made sure our water and drinks were refilled promptly.","The management ensures every guest feels valued from the moment they walk in. Table clearing and course transitions were swift, smooth, and clean. A benchmark for genuine hospitality in Pune!","Very impressed with the impeccable cleanliness and overall hygiene maintained across the premises. Tables, cutlery, and dining spaces were spotless, and the service was top-notch.","Excellent table service in the Amazon Family Section! The stewards were patient with the kids, answered our questions politely, and made sure our family gathering was thoroughly comfortable.","Quick, efficient, and attentive staff at both the dining tables and the bar counter. The team was responsive to all our dining preferences and delivered a flawless evening experience.","Heartfelt thanks to the team for making our celebration dinner so seamless and pleasant. Professional service, friendly smiles, and zero waiting time between courses.","The banquet coordinators and service stewards handled our function with absolute perfection. Attentive table service, timely buffet replenishment, and very polite communication throughout the event!","A truly customer-first establishment where guest satisfaction comes first. The staff went above and beyond to make our dining visit comfortable, clean, and memorable"];
+    function shuffleReviewIdea() {
+      const item = document.getElementById('review-menu-item').value;
+      let pool = activeReviewMood === 'food' ? foodReviews : activeReviewMood === 'drinks' ? drinkReviews : activeReviewMood === 'family' ? familyReviews : serviceReviews;
+      const selected = item.trim().toLowerCase();
+      const matches = { 'bombil kurkure':'bombil', 'soya chaap':'soya chaap', 'chicken matka tandoori':'chicken matka', 'chicken tandoori lollipop':'tandoori lollipop', 'bangda tandoori':'bangda', 'prawns kiliwado':'prawns', 'paneer jafrani':'jafrani', 'chicken kala masala':'chicken kala masala', 'jeera chicken':'jeera chicken', 'jamun shot':'jamun shot', 'jäger bomb shots':'jäger bomb' };
+      if (selected && (activeReviewMood === 'food' || activeReviewMood === 'drinks')) {
+        const term = Object.entries(matches).find(([label]) => selected.startsWith(label))?.[1];
+        if (term) { const relevant = pool.filter(review => review.toLowerCase().includes(term)); if (relevant.length) pool = relevant; }
+      }
+      const key = activeReviewMood + ':' + item;
+      let index = Math.floor(Math.random() * pool.length);
+      if (pool.length > 1 && index === lastReviewIdeaIndex[key]) index = (index + 1) % pool.length;
+      lastReviewIdeaIndex[key] = index;
+      const paragraph = document.createElement('p');
+      paragraph.textContent = pool[index] || 'Choose a review topic to see a draft.';
+      document.getElementById('review-idea').replaceChildren(paragraph);
+      document.getElementById('review-status').textContent = 'Your review draft is ready.';
+    }
+
+    async function copyReviewOnly() {
+      const reviewText = document.querySelector('#review-idea p').textContent;
+      const status = document.getElementById('review-status');
+      try {
+        await navigator.clipboard.writeText(reviewText);
+        status.textContent = '✓ Review copied to your clipboard.';
+      } catch (error) {
+        const copyField = document.createElement('textarea');
+        copyField.value = reviewText;
+        copyField.setAttribute('readonly', '');
+        copyField.style.position = 'fixed';
+        copyField.style.opacity = '0';
+        document.body.appendChild(copyField);
+        copyField.select();
+        document.execCommand('copy');
+        copyField.remove();
+        status.textContent = '✓ Review copied to your clipboard.';
+      }
+    }
+
+    async function copyReviewIdea() {
+      const reviewText = document.querySelector('#review-idea p').textContent;
+      const status = document.getElementById('review-status');
+      const googleUrl = "https://www.google.com/maps/place/Aryan's+Family+Restaurant+%26+Bar/@18.5265193,73.9537672,17z/data=!4m8!3m7!1s0x3bc2c2372fc2755d:0xf79db1cf45c53816!8m2!3d18.5265193!4d73.9537672!9m1!1b1!16s%2Fg%2F1pp2tyh4z?entry=ttu";
+      
+      try {
+        await navigator.clipboard.writeText(reviewText);
+        status.textContent = '✓ Review copied! Opening Google Maps...';
+      } catch (error) {
+        const copyField = document.createElement('textarea');
+        copyField.value = reviewText;
+        copyField.setAttribute('readonly', '');
+        copyField.style.position = 'fixed';
+        copyField.style.opacity = '0';
+        document.body.appendChild(copyField);
+        copyField.select();
+        document.execCommand('copy');
+        copyField.remove();
+        status.textContent = '✓ Review copied! Opening Google Maps...';
+      }
+
+      setTimeout(() => {
+        window.open(googleUrl, '_blank', 'noopener,noreferrer');
+      }, 700);
+    }
+
+    document.getElementById('google-review-assistant').addEventListener('click', event => {
+      if (event.target.id === 'google-review-assistant') closeReviewAssistant();
+    });
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') closeReviewAssistant();
+    });
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
